@@ -23,14 +23,18 @@ path: "/gatsby/1_setup"
 
 # 1.3 사이트 생성
 - 1.1에서 선택한 테마를 입력해줌
-- gatsby new gatsby-blog 테마URL
+- gatsby new 프로젝트명 테마URL
 - gatsby new gatsby-blog https://github.com/gatsbyjs/gatsby-starter-blog
 
 # 1.4 개발 서버를 이용해 사이트 보기
 - gatsby develop
 - localhost:8000 에서 결과 확인
+- content에 마크다운 파일 저장
 
 # 1.5 빌드 하기
 - gatsby build
 
-# 1.6 
+# 1.6 git repository 생성
+
+# 1.7 netlify 가입
+- 회원가입
