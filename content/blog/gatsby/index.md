@@ -1,5 +1,5 @@
 ---
-title: "[Gatsby]1.섫치" 
+title: "[Gatsby]1.설치" 
 category: "Gatsby"
 date: "2019-09-26"
 path: "/gatsby/1_setup"
@@ -31,10 +31,16 @@ path: "/gatsby/1_setup"
 - localhost:8000 에서 결과 확인
 - content에 마크다운 파일 저장
 
-# 1.5 빌드 하기
-- gatsby build
-
 # 1.6 git repository 생성
 
 # 1.7 netlify 가입
 - 회원가입
+- site 생성
+- git repository 연결
+
+# 1.8 빌드 하기
+- gatsby build
+
+# 1.9 github 서버에 push
+
+# 1.10 동작 확인

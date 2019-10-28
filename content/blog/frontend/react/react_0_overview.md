@@ -1,8 +1,7 @@
 ---
 title: "[React]0.개요" 
-category: "FrontEnd"
+category: "FrontEnd/React"
 date: "2019-09-26"
-path: "/react/0_overview"
 ---
 
 

@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `PSYda`,
     author: `psyssai`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `아직 많이 부족한 개발자 입니다. 틈틈히 공부한 내용을 올리고 있습니다. 현재에 멈추지 않고 계속적으로 발전하길 원합니다.`,
     siteUrl: `https://psyda.netlify.com`,
     social: {
       twitter: `kylemathews`,
