@@ -21,11 +21,8 @@ class BlogPostTemplate extends React.Component {
         <header className = "blogDate">
           <h5>{post.frontmatter.date}</h5>
         </header>
-        
       </article>
     )
-    
-    console.log(this.props.pageContext5)
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
@@ -45,14 +42,20 @@ class BlogPostTemplate extends React.Component {
             <li>
               {previous && (
                 <Link to={previous.fields.slug} rel="prev">
-                  ← {previous.frontmatter.title}
+                  { previous.frontmatter.title.length > 35 ? 
+                    "← " + previous.frontmatter.title.slice(0,34) + "..."
+                    :"← " + previous.frontmatter.title
+                  }
                 </Link>
               )}
             </li>
             <li>
               {next && (
                 <Link to={next.fields.slug} rel="next">
-                  {next.frontmatter.title} →
+                  { next.frontmatter.title.length > 35 ? 
+                    next.frontmatter.title.slice(0,34) + "... →"
+                    :next.frontmatter.title + " →"
+                  }
                 </Link>
               )}
             </li>

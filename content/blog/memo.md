@@ -21,3 +21,5 @@ date: "2019-10-28"
 # 7. Hugo에서 작성한 문서 Gatsby로 옮기기
 
 # 8. 반응형 CSS 개발
+
+# 9. Category에 맞게 Next Prev 설정

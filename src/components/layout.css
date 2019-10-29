@@ -55,7 +55,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
+    padding: 0;
 }
 
 #main nav.link ul li{
@@ -93,9 +93,15 @@ a:hover {
     border-width: 1px;
     border-color: rgb(243, 197, 52);
     background-color: rgb(254, 254, 184);
-    padding: 0px 30px;
+    padding: 30px;
     line-height: 1.8;
   }
+#summary ul{
+    margin: 0;
+}
+#summary li{
+    margin:0;
+}
 
 table.dataframe{
 margin: 10px 10px 60px 10px;
@@ -109,6 +115,12 @@ border:none;
 box-shadow: none;
 }
 
+pre.language-text{
+    background-color: white;
+}
+code.language-text{
+    color:black;
+}
 .dataframe > thead > tr > th{
 border:none;
 background-color: white;
@@ -150,34 +162,33 @@ table.dataframe > tbody > tr:nth-child(odd) > th {
 	background-color: #f4f4f4;
 }
 
+h1,h2,h3,h4,h5,h6{
+    letter-spacing: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 h1 {
     font-size: 26px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 h2 {
     font-size: 22px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 h3 {
     font-size: 18px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 h4 {
     font-size: 16px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 h5 {
     font-size: 16px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 h6 {
     font-size: 16px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 
