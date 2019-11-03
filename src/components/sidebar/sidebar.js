@@ -3,8 +3,23 @@ import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
 import "./sidebar.css";
 
-const Sidebar = () =>{
-    const data = useStaticQuery(graphql`
+class Sidebar extends React.Component{
+  constructor(props){
+    super(props);
+    /*
+    this.profile = (
+      <section id = "introduce">
+      <Image
+          fixed={this.data.avatar.childImageSharp.fixed}
+          alt={author}
+      />
+      <h2 className = "author">{author}</h2>
+      <p>{description}</p>
+    </section>
+    );
+    */
+    /*
+    this.data = useStaticQuery(graphql`
     query BioQuery {
       avatar: file(absolutePath: { regex: "/logo.jpg/" }) {
         childImageSharp {
@@ -24,28 +39,24 @@ const Sidebar = () =>{
       }
     }
   `)
+  */
   
+  }
 
-  const { author } = data.site.siteMetadata
-  const { description } = data.site.siteMetadata
-  console.log()
+  render(){
+
+  //const { author } = this.data.site.siteMetadata
+  //const { description } = this.data.site.siteMetadata
     return(
-        <section id = "sidebar">
-          <section id = "introduce">
-            <Image
-                fixed={data.avatar.childImageSharp.fixed}
-                alt={author}
-            />
-            <h2 className = "author">{author}</h2>
-            <p>{description}</p>
-          </section>
-          <section id = "categories">
-            
-          </section>
+      <section id = "sidebar">
+        {this.profile}
+        <section id = "categories">
           
         </section>
-    );
+        
+      </section>
+  );
+  }
 }
-
 export default Sidebar;
 
