@@ -11,6 +11,11 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
+    const { data } = this.props
+    const author = data.site.siteMetadata.author
+    const description = data.site.siteMetadata.description
+    const avatar = data.avatar;
+    
     console.log("##blog",post)
     const mainHeader = (
       <article className = "metaData">
@@ -52,7 +57,7 @@ class BlogPostTemplate extends React.Component {
     )
 
     return (
-      <Layout title={siteTitle}>
+      <Layout title={siteTitle} author = {author} description = {description} avatar = {avatar}>
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
@@ -78,6 +83,17 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         author
+        description
+      }
+    }
+    avatar: file(absolutePath: { regex: "/logo.jpg/" }) {
+      childImageSharp {
+        fixed(width: 100, height: 100) {
+          ...GatsbyImageSharpFixed
+        }
+        fluid(maxWidth: 50){
+          ...GatsbyImageSharpFluid
+        }
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
@@ -91,5 +107,22 @@ export const pageQuery = graphql`
         category
       }
     }
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            description
+            category
+          }
+        }
+      }
+    }
   }
+  
 `

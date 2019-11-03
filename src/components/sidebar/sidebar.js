@@ -3,34 +3,50 @@ import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
 import "./sidebar.css";
 
-const splitCategories = ( categories ) => {
-  let newCategories = [];
-  categories.map( category => 
-    (category !== null 
-      ? newCategories.push(category.split('/'))
-      : 0
-  ))
-  return newCategories;
-}
-
 class Sidebar extends React.Component{
   constructor(props){
     super(props);
-    /*
-    this.profile = (
+  }
+
+  splitCategories = ( categories ) => {
+    let newCategories = [];
+    categories.map( category => 
+      (category !== null 
+        ? newCategories.push(category.split('/'))
+        : 0
+    ))
+    return newCategories;
+  }
+
+  render(){
+    console.log("###side2",this.props)
+    const {avatar, author, description} = this.props;
+    const profile = (
       <section id = "introduce">
       <Image
-          fixed={this.data.avatar.childImageSharp.fixed}
+          fixed={avatar.childImageSharp.fixed}
           alt={author}
       />
       <h2 className = "author">{author}</h2>
       <p>{description}</p>
     </section>
     );
-    */
-    /*
-    this.data = useStaticQuery(graphql`
-    query BioQuery {
+
+    return(
+      <section id = "sidebar">
+        {profile}
+        <section id = "categories">
+          
+        </section>
+        
+      </section>
+  );
+  }
+}
+export default Sidebar;
+
+export const pageQuery = graphql`
+    query {
       avatar: file(absolutePath: { regex: "/logo.jpg/" }) {
         childImageSharp {
           fixed(width: 100, height: 100) {
@@ -48,26 +64,4 @@ class Sidebar extends React.Component{
         }
       }
     }
-  `)
-  */
-  
-  }
-
-  render(){
-
-  //const { author } = this.data.site.siteMetadata
-  //const { description } = this.data.site.siteMetadata
-
-    return(
-      <section id = "sidebar">
-        {this.profile}
-        <section id = "categories">
-          
-        </section>
-        
-      </section>
-  );
-  }
-}
-export default Sidebar;
-
+  `

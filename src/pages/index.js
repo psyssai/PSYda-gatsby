@@ -7,22 +7,22 @@ import SEO from "../components/seo"
 class BlogIndex extends React.Component {
   getUniqueCategories(posts){
     let categories = [];
-    posts.map( edge =>( categories.push(edge.node.frontmatter.category)));
-    let uniqueCategories = Array.from(new Set(categories));
-    console.log("##getUnique",categories, uniqueCategories)
-    return uniqueCategories;
-  }    
+    posts.map( edge =>( categories.push(edge.node.frontmatter.category )))
+    return Array.from(new Set(categories));
+  }
   
   render() {
+    console.log("###BLogIndex",this.props)
     const { data } = this.props
-    console.log(this.props)
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
-    
-    const categories = this.getUniqueCategories(posts)
-    console.log("#####index", categories)
+    const author = data.site.siteMetadata.author
+    const description = data.site.siteMetadata.description
+    const avatar = data.avatar;
+    this.getUniqueCategories(posts)
+
     return (
-      <Layout title={siteTitle} >
+      <Layout title={siteTitle} author = {author} description = {description} avatar = {avatar}>
         <SEO title={siteTitle} />
         <Bio />
         {posts.map(({ node }) => {
@@ -60,6 +60,18 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        author
+        description
+      }
+    }
+    avatar: file(absolutePath: { regex: "/logo.jpg/" }) {
+      childImageSharp {
+        fixed(width: 100, height: 100) {
+          ...GatsbyImageSharpFixed
+        }
+        fluid(maxWidth: 50){
+          ...GatsbyImageSharpFluid
+        }
       }
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
