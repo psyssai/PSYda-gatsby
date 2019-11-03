@@ -1,6 +1,6 @@
 ---
 title: "[Pandas 기초]8.Pandas DataFrame의 sort, rank 함수"   
-categories: "빅데이터분석/Pandas"  
+category: "빅데이터분석/Pandas"  
 date: "2019-08-28"  
 tags: ["sort_index","sort_values","데이터프레임 정렬"]
 ---

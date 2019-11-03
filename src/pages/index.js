@@ -7,19 +7,22 @@ import SEO from "../components/seo"
 class BlogIndex extends React.Component {
   getUniqueCategories(posts){
     let categories = [];
-    posts.map( edge =>( categories.push(edge.node.frontmatter.category )))
-    return Array.from(new Set(categories));
-  }
+    posts.map( edge =>( categories.push(edge.node.frontmatter.category)));
+    let uniqueCategories = Array.from(new Set(categories));
+    console.log("##getUnique",categories, uniqueCategories)
+    return uniqueCategories;
+  }    
   
   render() {
     const { data } = this.props
+    console.log(this.props)
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
     
-    this.getUniqueCategories(posts)
-
+    const categories = this.getUniqueCategories(posts)
+    console.log("#####index", categories)
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout title={siteTitle} >
         <SEO title={siteTitle} />
         <Bio />
         {posts.map(({ node }) => {

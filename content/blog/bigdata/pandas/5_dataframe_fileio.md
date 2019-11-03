@@ -1,6 +1,6 @@
 ---  
 title: "[Pandas 기초]5.Pandas의 파일 입출력"  
-categories : "빅데이터분석/Pandas"  
+category : "빅데이터분석/Pandas"  
 date: "2019-08-20"  
 tags: ["encoding","read_csv", "read_excel", "파일읽기", "파일쓰기"]  
 ---

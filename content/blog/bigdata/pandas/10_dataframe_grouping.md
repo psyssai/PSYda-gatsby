@@ -1,6 +1,6 @@
 ---
 title: "[Pandas 기초]10.DataFrame의 집계(그룹핑) 함수"  
-categories: "빅데이터분석/Pandas"  
+category: "빅데이터분석/Pandas"  
 date: "2019-08-31"  
 tags: ["dataframe 그룹핑", "groupby", "pivot_table", "그룹"]  
 ---

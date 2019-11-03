@@ -1,6 +1,6 @@
 ---
 title: "[Pandas 기초]7.Pandas DataFrame 통계"  
-categories: "빅데이터분석/Pandas"  
+category: "빅데이터분석/Pandas"  
 date: "2019-08-27"  
 tags: ["Pandas","DataFrame", "데이터 분석", "Append", "concat", "join", "merge"]  
 ---

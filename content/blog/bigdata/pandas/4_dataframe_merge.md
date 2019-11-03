@@ -1,6 +1,6 @@
 ---
 title: "[Pandas 기초]4.여러 DataFrame 연결하기(Join)"  
-categories: "빅데이터분석/Pandas"  
+category: "빅데이터분석/Pandas"  
 date: "2019-08-17"  
 tags: ["Pandas","DataFrame", "데이터 분석", "Append", "concat", "join", "merge"]  
 ---

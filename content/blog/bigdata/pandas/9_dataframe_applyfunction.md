@@ -1,6 +1,6 @@
 ---
 title: "[Pandas 기초]9.Series와 DataFrmae에 함수 적용하기"   
-categories: "빅데이터분석/Pandas"  
+category: "빅데이터분석/Pandas"  
 date: "2019-08-29"  
 tags: ["apply","applymap","dataframe 함수적용", "map"]  
 ---

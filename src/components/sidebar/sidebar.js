@@ -3,6 +3,16 @@ import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
 import "./sidebar.css";
 
+const splitCategories = ( categories ) => {
+  let newCategories = [];
+  categories.map( category => 
+    (category !== null 
+      ? newCategories.push(category.split('/'))
+      : 0
+  ))
+  return newCategories;
+}
+
 class Sidebar extends React.Component{
   constructor(props){
     super(props);
@@ -47,6 +57,7 @@ class Sidebar extends React.Component{
 
   //const { author } = this.data.site.siteMetadata
   //const { description } = this.data.site.siteMetadata
+
     return(
       <section id = "sidebar">
         {this.profile}

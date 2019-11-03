@@ -1,6 +1,6 @@
 ---  
 title: "[Pandas 기초]1.Pandas란 무엇인가?"  
-categories : "빅데이터분석/Pandas"  
+category : "빅데이터분석/Pandas"  
 date: "2019-08-13"  
 tags: ["Pandas","데이터분석","빅데이터"]  
 ---

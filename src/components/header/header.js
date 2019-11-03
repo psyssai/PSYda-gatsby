@@ -9,6 +9,7 @@ class Header extends React.Component{
       <h1>
         <Link to={`/`}> {this.props.title} </Link>
       </h1>
+
     );
     
     this.nav = (

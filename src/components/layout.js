@@ -4,10 +4,11 @@ import Header from "./header/header"
 import "./layout.css"
 class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props
+    const { title, children } = this.props
+    console.log("####Layout",children)
     return (
       <div id = "wrapper">
-        <Header location = {location} title = {title}/>
+        <Header title = {title}/>
         <div id ="container">
           <Sidebar />
           <main id = "main">

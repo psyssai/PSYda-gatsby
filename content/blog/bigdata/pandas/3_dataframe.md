@@ -1,6 +1,6 @@
 ---  
 title: "[Pandas 기초]3.Pandas의 자료구조-DataFrame"  
-categories: "빅데이터분석/Pandas"   
+category: "빅데이터분석/Pandas"   
 date: "2019-08-16"  
 tags: ["Pandas","DataFrame", "데이터 분석"]  
 ---

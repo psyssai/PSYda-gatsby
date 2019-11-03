@@ -1,6 +1,6 @@
 ---  
 title: "[Pandas 기초]2.Pandas의 자료구조-Series"  
-categories : "빅데이터분석/Pandas"  
+category : "빅데이터분석/Pandas"  
 date: "2019-08-15"  
 tags: ["Pandas","DataFrame", "Series"]  
 ---

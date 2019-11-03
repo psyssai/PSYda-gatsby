@@ -11,7 +11,7 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
-
+    console.log("##blog",post)
     const mainHeader = (
       <article className = "metaData">
         <header className = "blogTitle">
@@ -23,21 +23,9 @@ class BlogPostTemplate extends React.Component {
         </header>
       </article>
     )
-    return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO
-          title={post.frontmatter.title}
-          description={post.frontmatter.description || post.excerpt}
-        />
-        
-        {mainHeader}
-        <article className="contents">
-          <section dangerouslySetInnerHTML={{ __html: post.html }} />
-          <footer>
-            <Bio />
-          </footer>
-        </article>
-        <nav className="link">
+
+    const navPrevNext = (
+      <nav className="link">
           <ul>
             <li>
               {previous && (
@@ -61,6 +49,22 @@ class BlogPostTemplate extends React.Component {
             </li>
           </ul>
         </nav>
+    )
+
+    return (
+      <Layout title={siteTitle}>
+        <SEO
+          title={post.frontmatter.title}
+          description={post.frontmatter.description || post.excerpt}
+        />
+        {mainHeader}
+        <article className="contents">
+          <section dangerouslySetInnerHTML={{ __html: post.html }} />
+          <footer>
+            <Bio />
+          </footer>
+        </article>
+        {navPrevNext}
       </Layout>
     )
   }
