@@ -15,7 +15,7 @@ class BlogPostTemplate extends React.Component {
     const author = data.site.siteMetadata.author
     const description = data.site.siteMetadata.description
     const avatar = data.avatar;
-    
+    const postList =  data.allMarkdownRemark.edges
     console.log("##blog",post)
     const mainHeader = (
       <article className = "metaData">
@@ -57,7 +57,7 @@ class BlogPostTemplate extends React.Component {
     )
 
     return (
-      <Layout title={siteTitle} author = {author} description = {description} avatar = {avatar}>
+      <Layout title={siteTitle} author = {author} description = {description} avatar = {avatar} posts = {postList}>
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}

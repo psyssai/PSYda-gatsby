@@ -5,11 +5,6 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 class BlogIndex extends React.Component {
-  getUniqueCategories(posts){
-    let categories = [];
-    posts.map( edge =>( categories.push(edge.node.frontmatter.category )))
-    return Array.from(new Set(categories));
-  }
   
   render() {
     console.log("###BLogIndex",this.props)
@@ -19,10 +14,9 @@ class BlogIndex extends React.Component {
     const author = data.site.siteMetadata.author
     const description = data.site.siteMetadata.description
     const avatar = data.avatar;
-    this.getUniqueCategories(posts)
 
     return (
-      <Layout title={siteTitle} author = {author} description = {description} avatar = {avatar}>
+      <Layout title={siteTitle} author = {author} description = {description} avatar = {avatar} posts = {posts}>
         <SEO title={siteTitle} />
         <Bio />
         {posts.map(({ node }) => {

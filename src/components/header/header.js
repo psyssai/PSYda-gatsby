@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "gatsby"
 import "./header.css"
+import propTypes from "prop-types"
 
 class Header extends React.Component{
   constructor(props){
@@ -31,6 +32,9 @@ class Header extends React.Component{
       </header>
   );
   }
+}
+Header.propTypes = {
+  title:propTypes.string.isRequired
 }
 
 export default Header;
