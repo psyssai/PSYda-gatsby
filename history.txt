@@ -1,0 +1,8 @@
+====================================
+== Version: 0.1.5                 ==
+== author: PSY                    ==
+== date: 2019.11.22               ==
+Update Overview                   ==
+1. Profile, Category 분리
+2. Category Component 생성
+====================================
