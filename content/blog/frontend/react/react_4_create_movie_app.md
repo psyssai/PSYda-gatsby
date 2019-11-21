@@ -1,6 +1,6 @@
 ---
 title: "[React]4.영화 App 만들기" 
-category: "FrontEnd/React"
+category: "FrontEnd/java"
 date: "2019-10-12"
 tags: ["React","FrontEnd","노마드코더","React App"]   
 ---

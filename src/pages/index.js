@@ -14,7 +14,7 @@ class BlogIndex extends React.Component {
     const author = data.site.siteMetadata.author
     const description = data.site.siteMetadata.description
     const avatar = data.avatar;
-
+    console.log("####index",posts)
     return (
       <Layout title={siteTitle} author = {author} description = {description} avatar = {avatar} posts = {posts}>
         <SEO title={siteTitle} />

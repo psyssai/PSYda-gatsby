@@ -4,16 +4,9 @@ import "./header.css"
 import propTypes from "prop-types"
 
 class Header extends React.Component{
-  constructor(props){
-    super(props);
-    this.header = (
-      <h1>
-        <Link to={`/`}> {this.props.title} </Link>
-      </h1>
-
-    );
-    
-    this.nav = (
+  render() {
+    const title = (<h1><Link to={`/`}> {this.props.title} </Link></h1>);
+    const nav = (
       <nav id = "headerNav">
         <ul>
           <li> <Link to = {`/`}> Home </Link></li>
@@ -22,13 +15,10 @@ class Header extends React.Component{
         </ul>
       </nav>
     )
-  }
-  
-  render() {
     return(
       <header id = "header">
-        {this.header}
-        {this.nav}
+        {title}
+        {nav}
       </header>
   );
   }

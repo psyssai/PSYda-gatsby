@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { graphql } from "gatsby"
 import Image from "gatsby-image"
 import "./sidebar.css";
@@ -15,11 +15,34 @@ class Sidebar extends React.Component{
 
   splitCategories = ( categories ) => {
     let newCategories = [];
-    categories.map( category => 
-      (category !== null 
-        ? newCategories.push(category.split('/'))
-        : 0
-    ))
+    console.log("###splitCategories",categories)
+    let preCategory = 0;
+    let levelIndex = -1;
+    let newCategories2 = [["frontEnd",["js","react"]],["gatby"]];
+    console.log("####test",newCategories2);
+      
+    for(let i = 0; i <categories.length; i++ ){
+      let category = categories[i];
+      if( category === null) continue;
+      else{
+        let categoryList = category.split('/');
+        
+        let levelOne = categoryList[0];
+        console.log("###splitCategories2", categoryList, categoryList[0], preCategory)
+        if (categoryList[0] === preCategory){
+          console.log("###test",newCategories[levelIndex]);
+          //newCategories[levelIndex].push([categoryList[1]]);
+          console.log("###splitCategories3", preCategory, newCategories[levelIndex], levelIndex)
+        }
+        else{
+          newCategories.push([categoryList[0], [categoryList[1]]]);
+          levelIndex++;
+        }
+        preCategory = categoryList[0];
+        console.log("###splitCategories4",preCategory);
+      }
+    }
+    console.log("###splitCategories5", newCategories)
     return newCategories;
   }
 
@@ -39,7 +62,7 @@ class Sidebar extends React.Component{
       <p>{description}</p>
     </section>
     );
-
+      console.log("###newCategories",newCategories)
     return(
       <section id = "sidebar">
         {profile}
@@ -47,7 +70,10 @@ class Sidebar extends React.Component{
           <h1>Categories</h1>
           {newCategories.map( category =>
             (
-              <div>{category}</div>
+              <Fragment>
+              <ul className = "categoryLevel1">{category[0]}
+              <li className = "categoryLevel2">{category[1]}</li></ul>
+              </Fragment>
             ))}
         </section>
         

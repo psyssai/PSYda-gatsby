@@ -1,5 +1,5 @@
 ---
-title: "[Gatsby]1.Plugin" 
+title: "[Gatsby]2.Plugin" 
 category: "Gatsby"
 date: "2019-09-26"
 path: "/gatsby/1_setup"

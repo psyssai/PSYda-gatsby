@@ -1,16 +1,39 @@
-#sidebar{
-    min-width: 300px;
-    margin-right: 3%;
-    width: 20%;
+@media screen and (max-width: 767px)
+{
+    #sidebar {
+        padding: 20px 0 0 0 ;
+    }
+    #sidebar #categories{
+        display: none;
+    }
 }
 
+/* 태블릿 */
+@media screen and (min-width: 768px) and (max-width: 959px)
+{
+
+}
+/* PC */
+@media screen and (min-width: 960px)
+{
+    #sidebar{
+        min-width: 300px;
+        margin-right: 3%;
+        width: 20%;
+    }
+    #sidebar #introduce{
+        border-bottom: 1pt solid rgba(160, 160, 160, 0.3);
+    }
+}
 
 #sidebar #introduce{
     align-items: center;
     text-align: center;
-    border-bottom: 1pt solid rgba(160, 160, 160, 0.3);
 }
 
+#sidebar #introduce p{
+    padding: 0 5px 0 5px;
+}
 #sidebar #introduce .author{
     margin:0 0 1em 0;
     font-size:1em;
@@ -22,5 +45,15 @@
 }
 
 #sidebar #categories h1{
-    margin: 10 auto 20 auto;
+    margin: 20px 10px 10px 10px;
+}
+
+#sidebar #categories .categoryLevel1 {
+    margin : 0;
+    padding : 0;
+}
+#sidebar #categories .categoryLevel1 li{
+    display:list-item;
+    content:"\F0DA";
+    margin : 0 0 0 20px;
 }
