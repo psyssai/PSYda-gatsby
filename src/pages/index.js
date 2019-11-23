@@ -11,12 +11,9 @@ class BlogIndex extends React.Component {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
-    const author = data.site.siteMetadata.author
-    const description = data.site.siteMetadata.description
-    const avatar = data.avatar;
     console.log("####index",posts)
     return (
-      <Layout title={siteTitle} author = {author} description = {description} avatar = {avatar} posts = {posts}>
+      <Layout title={siteTitle} posts = {posts}>
         <SEO title={siteTitle} />
         <Bio />
         {posts.map(({ node }) => {
@@ -54,18 +51,6 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
-        author
-        description
-      }
-    }
-    avatar: file(absolutePath: { regex: "/logo.jpg/" }) {
-      childImageSharp {
-        fixed(width: 100, height: 100) {
-          ...GatsbyImageSharpFixed
-        }
-        fluid(maxWidth: 50){
-          ...GatsbyImageSharpFluid
-        }
       }
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {

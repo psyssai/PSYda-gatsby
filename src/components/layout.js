@@ -5,14 +5,14 @@ import "./layout.css"
 import propTypes from "prop-types";
 class Layout extends React.Component {
   render() {
-    const { title, author, avatar, description, children, posts } = this.props
+    const { title, children, posts } = this.props
 
     console.log("####Layout",this.props)
     return (
       <div id = "wrapper">
         <Header title = {title}/>
         <div id ="container">
-        <Sidebar author = {author} description = {description} avatar = {avatar} posts = {posts}/>
+        <Sidebar posts = {posts}/>
           <main id = "main">
             {children}
           </main>

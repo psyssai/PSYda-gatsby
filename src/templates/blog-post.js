@@ -12,9 +12,6 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
     const { data } = this.props
-    const author = data.site.siteMetadata.author
-    const description = data.site.siteMetadata.description
-    const avatar = data.avatar;
     const postList =  data.allMarkdownRemark.edges
     console.log("##blog",post)
     const mainHeader = (
@@ -57,7 +54,7 @@ class BlogPostTemplate extends React.Component {
     )
 
     return (
-      <Layout title={siteTitle} author = {author} description = {description} avatar = {avatar} posts = {postList}>
+      <Layout title={siteTitle} posts = {postList}>
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
@@ -82,18 +79,6 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
-        author
-        description
-      }
-    }
-    avatar: file(absolutePath: { regex: "/logo.jpg/" }) {
-      childImageSharp {
-        fixed(width: 100, height: 100) {
-          ...GatsbyImageSharpFixed
-        }
-        fluid(maxWidth: 50){
-          ...GatsbyImageSharpFluid
-        }
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {

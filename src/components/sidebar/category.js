@@ -1,15 +1,17 @@
+
 import React, { Fragment } from "react"
 
 const getUniqueCategories = (posts) =>
 {
     let categories = [];
-    posts.map( edge =>( categories.push(edge.node.frontmatter.category )))
+    console.log("getUniqueCategories", posts)
+    //posts.map( edge =>( categories.push(edge.node.frontmatter.category )))
     return Array.from(new Set(categories));
 }
- 
+/* 
 const splitCategories = ( categories ) => 
 {
-    let newCategories = Array();
+    let newCategories = [];
     let preCategory = 0;
     let levelIndex = -1;
     let levelOne;
@@ -20,7 +22,6 @@ const splitCategories = ( categories ) =>
         else{ // category 가 null 이 아닐 때
         let categoryList = category.split('/');
         levelOne = categoryList[0];
-        console.log("###for", i, levelIndex, levelOne, preCategory);
         if (levelOne === preCategory){
             newCategories[levelIndex].level2.push(categoryList[1]);
         }
@@ -33,9 +34,11 @@ const splitCategories = ( categories ) =>
     }
     return newCategories;
 }
-
+*/
 const Category = ({posts}) => {
     const categories = getUniqueCategories(posts)
+    return ( <Fragment>{categories}</Fragment>)
+  /*
     const newCategories = splitCategories(categories);
     return (
         <section id = "categories">
@@ -52,6 +55,7 @@ const Category = ({posts}) => {
             ))}
         </section>
     )
+    */
 }
 
 export default Category;
