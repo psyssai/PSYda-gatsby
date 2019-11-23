@@ -1,61 +1,79 @@
 
-import React, { Fragment } from "react"
+import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
 
 const getUniqueCategories = (posts) =>
 {
     let categories = [];
-    console.log("getUniqueCategories", posts)
-    //posts.map( edge =>( categories.push(edge.node.frontmatter.category )))
+    posts.map( edge =>( categories.push(edge.node.frontmatter.category )))
     return Array.from(new Set(categories));
 }
-/* 
+
 const splitCategories = ( categories ) => 
 {
     let newCategories = [];
-    let preCategory = 0;
+    let prevLevelOne = 0;
     let levelIndex = -1;
-    let levelOne;
+    let currLevelOne;
 
     for(let i = 0; i <categories.length; i++ ){
         const category = categories[i];
         if( category === null) continue;
         else{ // category 가 null 이 아닐 때
         let categoryList = category.split('/');
-        levelOne = categoryList[0];
-        if (levelOne === preCategory){
+        currLevelOne = categoryList[0];
+        if (currLevelOne === prevLevelOne){
             newCategories[levelIndex].level2.push(categoryList[1]);
         }
         else{
             newCategories.push({level1 : categoryList[0], level2 : [categoryList[1]]});
             levelIndex++;
         }
-        preCategory = categoryList[0];
+        prevLevelOne = currLevelOne;
         }
     }
     return newCategories;
 }
-*/
-const Category = ({posts}) => {
+
+const Category = () => {
+
+    const data = useStaticQuery(graphql`
+    query Category {
+        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+            edges {
+              node {
+                excerpt
+                fields {
+                  slug
+                }
+                frontmatter {
+                  date(formatString: "MMMM DD, YYYY")
+                  title
+                  description
+                  category
+                }
+              }
+            }
+          }
+    }
+    `)
+    const posts = data.allMarkdownRemark.edges
     const categories = getUniqueCategories(posts)
-    return ( <Fragment>{categories}</Fragment>)
-  /*
     const newCategories = splitCategories(categories);
     return (
         <section id = "categories">
         <h1>Categories</h1>
         {newCategories.map( category =>
             (
-            <Fragment>
-            <ul className = "categoryLevel1">{category.level1}
+            <ul key = {category.level1} className = "categoryLevel1">{category.level1}
             {category.level2.map( level2 => (
                 level2 === undefined ? '':
-                <li className = "categoryLevel2">{level2}</li>  
+                <li key = {level2} className = "categoryLevel2">{level2}</li>  
             ))}</ul>
-            </Fragment>
             ))}
         </section>
     )
-    */
+    
 }
 
 export default Category;

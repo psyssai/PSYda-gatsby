@@ -11,9 +11,7 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
-    const { data } = this.props
-    const postList =  data.allMarkdownRemark.edges
-    console.log("##blog",post)
+
     const mainHeader = (
       <article className = "metaData">
         <header className = "blogTitle">
@@ -54,7 +52,7 @@ class BlogPostTemplate extends React.Component {
     )
 
     return (
-      <Layout title={siteTitle} posts = {postList}>
+      <Layout title={siteTitle} >
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
@@ -90,22 +88,6 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         description
         category
-      }
-    }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            description
-            category
-          }
-        }
       }
     }
   }

@@ -5,13 +5,11 @@ import Profile from "./profile"
 
 class Sidebar extends React.Component{
 
-  render(){
-    const {posts} = this.props;
-  
+  render(){  
     return(
       <section id = "sidebar">
         <Profile />
-        <Category posts = {posts} />
+        <Category />
       </section>
   );
   }

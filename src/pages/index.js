@@ -7,13 +7,11 @@ import SEO from "../components/seo"
 class BlogIndex extends React.Component {
   
   render() {
-    console.log("###BLogIndex",this.props)
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
-    console.log("####index",posts)
     return (
-      <Layout title={siteTitle} posts = {posts}>
+      <Layout title={siteTitle} >
         <SEO title={siteTitle} />
         <Bio />
         {posts.map(({ node }) => {
