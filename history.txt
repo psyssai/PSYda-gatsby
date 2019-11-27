@@ -1,22 +1,36 @@
 ====================================
+== Version: 0.1.8                 ==
+== author: PSY                    ==
+== date: 2019.11.23               ==
+====================================
+1. Dev
+  - ol list style type 변경(빈 원형태)
+
+2. Contents
+  - 
+
+====================================
 == Version: 0.1.7                 ==
 == author: PSY                    ==
 == date: 2019.11.23               ==
 ====================================
-1. Category 내에서 graphql 사용하여 category를 획득하도록 변경함
+1. Dev
+- Category 내에서 graphql 사용하여 category를 획득하도록 변경함
 
 ====================================
 == Version: 0.1.6                 ==
 == author: PSY                    ==
 == date: 2019.11.22               ==
 ====================================
-1. Profile 내에서 graphql 사용하여 avatar를 획득하도록 변경함
+1. Dev
+- Profile 내에서 graphql 사용하여 avatar를 획득하도록 변경함
 
 ====================================
 == Version: 0.1.5                 ==
 == author: PSY                    ==
 == date: 2019.11.22               ==
 ====================================
-1. Profile, Category 분리
-2. Category Component 생성
+1. Dev
+- Profile, Category 분리
+- Category Component 생성
 
