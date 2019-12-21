@@ -5,7 +5,16 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 class BlogIndex extends React.Component {
-  
+
+  /*
+  constructor() {
+    this.state = { category: '' };
+  }
+
+  changeCategory = (category) => {
+    this.setState({category: category});
+  }
+  */
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title

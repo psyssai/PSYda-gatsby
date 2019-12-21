@@ -52,11 +52,33 @@
 }
 
 #sidebar #categories .categoryLevel1 {
+    border: none;
+    outline: none;
     margin : 0;
     padding : 0;
 }
-#sidebar #categories .categoryLevel1 li{
+
+#sidebar #categories .categoryLevel1.isUlVisible::before{
+    content:"\f107";
+    font-family: FontAwesome;
+    font-weight: bold;
+}
+
+#sidebar #categories .categoryLevel1.isUlUnVisible::before{
+    content:"\f105";
+    font-family: FontAwesome;
+    font-weight: bold;
+}
+
+#sidebar #categories ul li{
     display:list-item;
-    content:"\F0DA";
-    margin : 0 0 0 20px;
+    margin : 0 0 0 30px;
+
+}
+#sidebar #categories ul{
+    margin : 0;
+    padding : 0 0 0 0;
+}
+#sidebar #categories ul .isUlUnVisible {
+    display: none;
 }

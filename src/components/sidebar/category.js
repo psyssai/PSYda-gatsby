@@ -1,5 +1,5 @@
 
-import React from "react"
+import React, {useState, Fragment}  from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 const getUniqueCategories = (posts) =>
@@ -35,6 +35,28 @@ const splitCategories = ( categories ) =>
     return newCategories;
 }
 
+const getUlClassName = (status) =>{
+    return status === 1 ? "isUlVisible" : "isUlUnVisible"
+}
+
+const CategoryUl = ({category}) =>{
+    const [status,setStatus] = useState(1);
+    return (
+    <Fragment>
+        <div >
+            <button className = {`categoryLevel1 ${getUlClassName(status)}`} id = {category.level1} onClick = { () => setStatus(status === 0 ? 1 : 0)}></button>
+            {category.level1}
+        </div>
+        <ul>
+            {category.level2.map( level2 => (
+                level2 === undefined ? '':
+                <li key = {level2} className = {`categoryLevel2 ${getUlClassName(status)}`}>{level2}</li>  
+            ))}</ul>
+    </Fragment>
+    )
+}
+
+
 const Category = () => {
 
     const data = useStaticQuery(graphql`
@@ -57,23 +79,21 @@ const Category = () => {
           }
     }
     `)
+
     const posts = data.allMarkdownRemark.edges
     const categories = getUniqueCategories(posts)
     const newCategories = splitCategories(categories);
+
     return (
         <section id = "categories">
         <h1>Categories</h1>
         {newCategories.map( category =>
             (
-            <ul key = {category.level1} className = "categoryLevel1">{category.level1}
-            {category.level2.map( level2 => (
-                level2 === undefined ? '':
-                <li key = {level2} className = "categoryLevel2">{level2}</li>  
-            ))}</ul>
+                <CategoryUl key = {category.level1} category = {category} />
+            
             ))}
         </section>
     )
-    
 }
 
 export default Category;
