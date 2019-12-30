@@ -82,3 +82,7 @@
 #sidebar #categories ul .isUlUnVisible {
     display: none;
 }
+
+#sidebar #categories button.categoryLevel1 {
+    padding-right: 10px;
+}

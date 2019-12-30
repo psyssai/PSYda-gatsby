@@ -1,6 +1,6 @@
 ---
 title: "해야할 것들" 
-date: "2019-10-28"
+date: "2017-10-28"
 ---
 
 # 1. Category
@@ -18,8 +18,6 @@ date: "2019-10-28"
 
 # 6. SideBar에 최근 5개 posting 표시
 
-# 7. Hugo에서 작성한 문서 Gatsby로 옮기기
+# 7. 반응형 CSS 개발
 
-# 8. 반응형 CSS 개발
-
-# 9. Category에 맞게 Next Prev 설정
+# 8. Category에 맞게 Next Prev 설정

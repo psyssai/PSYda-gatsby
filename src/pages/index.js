@@ -15,28 +15,32 @@ class BlogIndex extends React.Component {
     this.setState({category: category});
   }
   */
+  
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
+    const viewPosts = posts.filter( ({node} ) => { 
+      return node.excerpt !== ""})
     return (
       <Layout title={siteTitle} >
         <SEO title={siteTitle} />
         <Bio />
-        {posts.map(({ node }) => {
+        
+        {viewPosts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
             
             <article className = "postList" key={node.fields.slug}>
-              <header>
-                <h3>
+              <header className = "postHeader">
+              <small className = "date">{node.frontmatter.date}</small>
+                <h3 className = "title">
                   <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
                     {title}
                   </Link>
                 </h3>
-                <small>{node.frontmatter.date}</small>
               </header>
-              <section>
+              <section className = "postContents">
                 <p
                   dangerouslySetInnerHTML={{
                     __html: node.frontmatter.description || node.excerpt,
