@@ -48,13 +48,53 @@
         border-bottom: 1px solid #e5e5e5;
         padding: 32px 10px;
         margin : 0px 20px;
-
     }
 
     #main .postList .postHeader .title a{
         font-size: 26px;
     }
 
+    ul{
+        padding: 0 0 0 10px;    
+        margin: 0 0 0 10px;
+    }
+    
+    ol{
+        padding: 0 0 0 10px;    
+        margin: 0 0 0 10px;
+    }  
+
+    li{
+        margin:0px;
+    }
+
+    li p {
+        margin:0px;
+    }
+
+    li ul{
+        padding: 0 0 0 10px;    
+        margin: 0 0 0 10px;
+    }
+    li ol{
+        padding: 0 0 0 10px;    
+        margin: 0 0 0 10px;
+    }
+
+    #main nav.link {
+        padding:0 10px;
+        display:inline;
+    }
+
+    #main nav.link ul {
+        padding: 0;
+        margin: 0 30px;
+    }
+
+    #main nav.link ul li{
+        margin: 5px 0;
+        padding: 10px;
+    }
 }
 
 /* 태블릿 */
@@ -121,6 +161,29 @@
         font-size: 32px;
     }
 
+    ul{
+        padding: 0 0 0 20px;    
+    }
+    
+    ol{
+        padding: 0 0 0 20px;    
+    }
+
+    #main nav.link ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0;
+    }
+    
+    #main nav.link {
+        padding:0 50px
+    }
+    #main nav.link ul li{
+        height : 50px;
+        line-height: 50px;
+        padding: 0 20px;
+    }
 }
 
 #wrapper{
@@ -129,7 +192,6 @@
 #main {
     background-color: rgb(250,250,250);
 }
-
 
 #main .postList .postHeader .date {
     color: #aaa;
@@ -144,24 +206,10 @@
     margin : 0;
 }
 
-#main nav.link {
-    padding:0 50px
-}
-
-#main nav.link ul{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0;
-}
-
 #main nav.link ul li{
     list-style: none;
-    height : 50px;
-    line-height: 50px;
     border:1px solid #dcdcdc;
     font-weight: bold;
-    padding: 0 20px;
 }
 
 a {
@@ -326,19 +374,8 @@ h6 {
 	font-weight: bold;
 }
 
-ul{
-    padding: 0 0 0 20px;    
-}
-
 ol{
-    padding: 0 0 0 20px;    
     list-style-type : circle;
 }
-
-ol li ul{
-    margin: 0;
-}
-
-
 
 
