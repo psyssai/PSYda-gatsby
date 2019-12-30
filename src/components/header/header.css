@@ -15,6 +15,7 @@
     #header nav{
         display: none;
     }
+    
 }
 
 /* 태블릿 */
@@ -78,6 +79,22 @@
         line-height: 1;
         border-left: solid 1px rgba(160, 160, 160, 0.3);
     } 
+
+    #header nav ul li.home::before{
+        content:"\f015";
+        font-family: FontAwesome;
+        font-weight: bold;
+    }
+
+    #header nav ul li.categories::before{
+        content:"\f036";
+        font-family: FontAwesome;
+    }
+    #header nav ul li.memo::before{
+        content:"\f15b";
+        font-family: FontAwesome;
+    }
+    
 }
 
 #header {

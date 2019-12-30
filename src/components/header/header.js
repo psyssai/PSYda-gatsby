@@ -9,9 +9,9 @@ class Header extends React.Component{
     const nav = (
       <nav id = "headerNav">
         <ul>
-          <li> <Link to = {`/`}> Home </Link></li>
-          <li> <Link to = {`/categories`}> Categories </Link> </li>
-          <li> <Link to ={`/memo`}> Memo </Link> </li>
+          <li className = "home"> <Link to = {`/`}> Home </Link></li>
+          <li className = "categories"> <Link to = {`/categories`}> Categories </Link> </li>
+          <li className = "memo"> <Link to ={`/memo`}> Memo </Link> </li>
         </ul>
       </nav>
     )
