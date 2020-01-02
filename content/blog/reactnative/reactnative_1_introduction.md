@@ -21,7 +21,7 @@ Nomad Coders의 React Native로 날씨앱 만들기 과정을 통해 학습한 �
     <li><strong>Expo vs RN CLI</strong></li>
     <li><strong>Create the project</strong></li>
     <li><strong>Getting to know Expo</strong></li>
-    <li><strong># 5.How does React Native Work?</strong></li>
+    <li><strong>5.How does React Native Work?</strong></li>
 </ol>
 </div>
 
@@ -136,7 +136,7 @@ expo를 실행하는 PC와 휴대폰이 동일한 wifi를 사용해야합니다.
     - ios, android 의 순수 개발 언어(swift, objective-c, java 등)으로 만드는 것
 
 2) **App 기반 Web view를 만드는 방법**
-    - App안에서 작동하는 웹사이트
+    - App안에서 작동하는 웹사이트(하이브리드 방법)
     - 껍데기는 cordova or phoneGap에 의해 만들어진 native
     - 보여주는 내용은 HTML, CSS, javascript로 동작
     - react native도 이런 방식임
