@@ -1,21 +1,19 @@
 /* 반응형 쿼리 */
 /* 휴대폰 */
-@media screen and (max-width: 767px)
-{
-    #header {
-        /* 높이값 설정 및 Header 세로방향 가운데 정렬 */
-        height: 2.5em;
-        line-height: 2.5em;
-    }
-    #header h1{
-        padding: 0 0 0 25px;
-        min-width: 200px;
-        font-size:20px;
-    }
-    #header nav{
-        display: none;
-    }
-    
+@media screen and (max-width: 767px) {
+  #header {
+    /* 높이값 설정 및 Header 세로방향 가운데 정렬 */
+    height: 2.5em;
+    line-height: 2.5em;
+  }
+  #header h1 {
+    padding: 0 0 0 25px;
+    min-width: 200px;
+    font-size: 20px;
+  }
+  #header nav {
+    display: none;
+  }
 }
 
 /* 태블릿 */
@@ -27,83 +25,80 @@
 */
 /* PC */
 /*@media screen and (min-width: 960px)*/
-@media screen and (min-width: 768px)
-{
-    #header {
-            
-        /* Position 상단에 고정*/
-        position:fixed;
-        top: 0;
-        left: 0;
+@media screen and (min-width: 768px) {
+  #header {
+    /* Position 상단에 고정*/
+    position: fixed;
+    top: 0;
+    left: 0;
 
-        /* 높이값 설정 및 Header 세로방향 가운데 정렬 */
-        height: 3.5em;
-        line-height: 3.5em;
-        
-        /* header 자식 데이터 Layout 구성 */
-        display:flex;
-        justify-content: flex-start; 
+    /* 높이값 설정 및 Header 세로방향 가운데 정렬 */
+    height: 3.5em;
+    line-height: 3.5em;
 
-        /*너비를 100%로 고정*/
-        width: 100%;
+    /* header 자식 데이터 Layout 구성 */
+    display: flex;
+    justify-content: flex-start;
 
-        /* Header가 제일 위에 흰색으로 표시 */
-        z-index: 10000;
-    }
+    /*너비를 100%로 고정*/
+    width: 100%;
 
-    #header h1{
-        padding: 0 0 0 50px;
-        min-width: 300px;
-        font-size:25px;
-    }
+    /* Header가 제일 위에 흰색으로 표시 */
+    z-index: 10000;
+  }
 
-    #header nav{
-        border-left: solid 1px rgba(160, 160, 160, 0.3);
-        padding-left:20px;
-    }
-    
-    #header nav ul{
-        margin:0;
-    }
-    
-    #header nav ul li:first-child{
-        border-left:0;
-        margin-left:0;
-        padding-left:0;
-    }
-    
-    #header nav ul li{
-        padding:0 0 0 20px;
-        margin:0 0 0 20px;
-        display: inline-block;
-        line-height: 1;
-        border-left: solid 1px rgba(160, 160, 160, 0.3);
-    } 
+  #header h1 {
+    padding: 0 0 0 50px;
+    min-width: 300px;
+    font-size: 25px;
+  }
 
-    #header nav ul li.home::before{
-        content:"\f015";
-        font-family: FontAwesome;
-        font-weight: bold;
-    }
+  #header nav {
+    border-left: solid 1px rgba(160, 160, 160, 0.3);
+    padding-left: 20px;
+  }
 
-    #header nav ul li.categories::before{
-        content:"\f036";
-        font-family: FontAwesome;
-    }
-    #header nav ul li.memo::before{
-        content:"\f15b";
-        font-family: FontAwesome;
-    }
-    
+  #header nav ul {
+    margin: 0;
+  }
+
+  #header nav ul li:first-child {
+    border-left: 0;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  #header nav ul li {
+    padding: 0 0 0 20px;
+    margin: 0 0 0 20px;
+    display: inline-block;
+    line-height: 1;
+    border-left: solid 1px rgba(160, 160, 160, 0.3);
+  }
+
+  #header nav ul li.home::before {
+    content: "\f015";
+    font-family: FontAwesome;
+    font-weight: bold;
+  }
+
+  #header nav ul li.categories::before {
+    content: "\f036";
+    font-family: FontAwesome;
+  }
+  #header nav ul li.memo::before {
+    content: "\f15b";
+    font-family: FontAwesome;
+  }
 }
 
 #header {
-    background-color: #ffffff;
-    /* Header 아래 경계 설정 */
-    border-bottom:solid 1px rgba(160, 160, 160, 0.3);
+  background-color: #ffffff;
+  /* Header 아래 경계 설정 */
+  border-bottom: solid 1px rgba(160, 160, 160, 0.3);
 }
 
-#header h1{
-    margin:0;
-    line-height: inherit;
+#header h1 {
+  margin: 0;
+  line-height: inherit;
 }

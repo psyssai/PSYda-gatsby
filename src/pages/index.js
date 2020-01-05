@@ -5,7 +5,6 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 class BlogIndex extends React.Component {
-
   /*
   constructor() {
     this.state = { category: '' };
@@ -15,32 +14,32 @@ class BlogIndex extends React.Component {
     this.setState({category: category});
   }
   */
-  
+
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
-    const viewPosts = posts.filter( ({node} ) => { 
-      return node.excerpt !== ""})
+    const viewPosts = posts.filter(({ node }) => {
+      return node.excerpt !== ""
+    })
     return (
-      <Layout title={siteTitle} >
+      <Layout title={siteTitle}>
         <SEO title={siteTitle} />
         <Bio />
-        
+
         {viewPosts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
-            
-            <article className = "postList" key={node.fields.slug}>
-              <header className = "postHeader">
-              <small className = "date">{node.frontmatter.date}</small>
-                <h3 className = "title">
+            <article className="postList" key={node.fields.slug}>
+              <header className="postHeader">
+                <small className="date">{node.frontmatter.date}</small>
+                <h3 className="title">
                   <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
                     {title}
                   </Link>
                 </h3>
               </header>
-              <section className = "postContents">
+              <section className="postContents">
                 <p
                   dangerouslySetInnerHTML={{
                     __html: node.frontmatter.description || node.excerpt,

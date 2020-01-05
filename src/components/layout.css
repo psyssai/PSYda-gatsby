@@ -1,100 +1,95 @@
 /* 초기화 */
 * {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    margin: 0;
-    padding: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
 }
 
 /* 반응형 쿼리 Layout */
 /* 휴대폰 */
-@media screen and (max-width: 767px)
-{
-    #main{
-        width:100%;
-    }
+@media screen and (max-width: 767px) {
+  #main {
+    width: 100%;
+  }
 
-    #main .metaData
-    {
-        border:solid 1px rgba(160, 160, 160, 0.3);
-        padding:30px;
-    }
+  #main .metaData {
+    border: solid 1px rgba(160, 160, 160, 0.3);
+    padding: 30px;
+  }
 
-    #main .metaData header.blogTitle h1
-    {
-        font-size:26px;
-        font-weight: bold;
-        text-align: center;
-        margin : 10px;
-    }
+  #main .metaData header.blogTitle h1 {
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px;
+  }
 
-    #main .metaData header.blogTitle p
-    {
-        display: none;
-    }
-    #main .metaData header.blogDate h5
-    {
-        text-align: center;
-        font-size:16px;
-        color:#aaa;
-        margin:10px;
-    }
+  #main .metaData header.blogTitle p {
+    display: none;
+  }
+  #main .metaData header.blogDate h5 {
+    text-align: center;
+    font-size: 16px;
+    color: #aaa;
+    margin: 10px;
+  }
 
-    #main article.contents {
-        padding:30px
-    }
+  #main article.contents {
+    padding: 30px;
+  }
 
-    #main .postList {
-        border-bottom: 1px solid #e5e5e5;
-        padding: 32px 10px;
-        margin : 0px 20px;
-    }
+  #main .postList {
+    border-bottom: 1px solid #e5e5e5;
+    padding: 32px 10px;
+    margin: 0px 20px;
+  }
 
-    #main .postList .postHeader .title a{
-        font-size: 26px;
-    }
+  #main .postList .postHeader .title a {
+    font-size: 26px;
+  }
 
-    ul{
-        padding: 0 0 0 10px;    
-        margin: 0 0 0 10px;
-    }
-    
-    ol{
-        padding: 0 0 0 10px;    
-        margin: 0 0 0 10px;
-    }  
+  ul {
+    padding: 0 0 0 10px;
+    margin: 0 0 0 10px;
+  }
 
-    li{
-        margin:0px;
-    }
+  ol {
+    padding: 0 0 0 10px;
+    margin: 0 0 0 10px;
+  }
 
-    li p {
-        margin:0px;
-    }
+  li {
+    margin: 0px;
+  }
 
-    li ul{
-        padding: 0 0 0 10px;    
-        margin: 0 0 0 10px;
-    }
-    li ol{
-        padding: 0 0 0 10px;    
-        margin: 0 0 0 10px;
-    }
+  li p {
+    margin: 0px;
+  }
 
-    #main nav.link {
-        padding:0 10px;
-        display:inline;
-    }
+  li ul {
+    padding: 0 0 0 10px;
+    margin: 0 0 0 10px;
+  }
+  li ol {
+    padding: 0 0 0 10px;
+    margin: 0 0 0 10px;
+  }
 
-    #main nav.link ul {
-        padding: 0;
-        margin: 0 30px;
-    }
+  #main nav.link {
+    padding: 0 10px;
+    display: inline;
+  }
 
-    #main nav.link ul li{
-        margin: 5px 0;
-        padding: 10px;
-    }
+  #main nav.link ul {
+    padding: 0;
+    margin: 0 30px;
+  }
+
+  #main nav.link ul li {
+    margin: 5px 0;
+    padding: 10px;
+  }
 }
 
 /* 태블릿 */
@@ -106,126 +101,119 @@
 */
 /* PC */
 /*@media screen and (min-width: 960px)*/
-@media screen and (min-width: 768px)
-{
-    #wrapper{
-        display:flex;
-        flex-direction: column;
-    }
+@media screen and (min-width: 768px) {
+  #wrapper {
+    display: flex;
+    flex-direction: column;
+  }
 
-    #container{
-        display:flex;
-        margin:3.5em 0px;
-        padding:4em;
-    }
-    #main {
-        border:solid 1px rgba(160, 160, 160, 0.3);
-        width: 70%;
-        margin: 0 auto
-    }
+  #container {
+    display: flex;
+    margin: 3.5em 0px;
+    padding: 4em;
+  }
+  #main {
+    border: solid 1px rgba(160, 160, 160, 0.3);
+    width: 70%;
+    margin: 0 auto;
+  }
 
-    #main .metaData header.blogTitle
-    {
-        border:solid 1px rgba(160, 160, 160, 0.3);
-        width:60%;
-        padding:70px;
-        font-size:22px;
-        font-weight: bold;
-    }
+  #main .metaData header.blogTitle {
+    border: solid 1px rgba(160, 160, 160, 0.3);
+    width: 60%;
+    padding: 70px;
+    font-size: 22px;
+    font-weight: bold;
+  }
 
-    #main .metaData header.blogDate
-    {
+  #main .metaData header.blogDate {
+    border: solid 1px rgba(160, 160, 160, 0.3);
+    padding: 70px;
+    width: 40%;
+    text-align: right;
+  }
 
-        border:solid 1px rgba(160, 160, 160, 0.3);
-        padding:70px;
-        width:40%;
-        text-align: right;
-    }
+  #main article.metaData {
+    display: flex;
+  }
 
-    #main article.metaData {
-        display: flex;
-    }
-    
-    #main article.contents {
-        padding:70px
-    }
+  #main article.contents {
+    padding: 70px;
+  }
 
-    #main .postList {
-        border-bottom: 1px solid #e5e5e5;
-        padding: 32px 10px;
-        margin : 0px 50px;
+  #main .postList {
+    border-bottom: 1px solid #e5e5e5;
+    padding: 32px 10px;
+    margin: 0px 50px;
+  }
 
-    }
+  #main .postList .postHeader .title a {
+    font-size: 32px;
+  }
 
-    #main .postList .postHeader .title a{
-        font-size: 32px;
-    }
+  ul {
+    padding: 0 0 0 20px;
+  }
 
-    ul{
-        padding: 0 0 0 20px;    
-    }
-    
-    ol{
-        padding: 0 0 0 20px;    
-    }
+  ol {
+    padding: 0 0 0 20px;
+  }
 
-    #main nav.link ul{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 0;
-    }
-    
-    #main nav.link {
-        padding:0 50px
-    }
-    #main nav.link ul li{
-        height : 50px;
-        line-height: 50px;
-        padding: 0 20px;
-    }
+  #main nav.link ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0;
+  }
+
+  #main nav.link {
+    padding: 0 50px;
+  }
+  #main nav.link ul li {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 20px;
+  }
 }
 
-#wrapper{
-    background-color: rgb(240,240,240);
+#wrapper {
+  background-color: rgb(240, 240, 240);
 }
 #main {
-    background-color: rgb(250,250,250);
+  background-color: rgb(250, 250, 250);
 }
 
 #main .postList .postHeader .date {
-    color: #aaa;
-    font-size: 16px;
+  color: #aaa;
+  font-size: 16px;
 }
 
-#main .postList .postHeader .title{
-    margin : 10px 0;
+#main .postList .postHeader .title {
+  margin: 10px 0;
 }
 
 #main .postList .postContents p {
-    margin : 0;
+  margin: 0;
 }
 
-#main nav.link ul li{
-    list-style: none;
-    border:1px solid #dcdcdc;
-    font-weight: bold;
+#main nav.link ul li {
+  list-style: none;
+  border: 1px solid #dcdcdc;
+  font-weight: bold;
 }
 
 a {
-    box-shadow: none;
-    color : black;
-
+  box-shadow: none;
+  color: black;
 }
 
 .contents a {
-    border-bottom: dotted 1px rgba(160, 160, 160, 0.65);
+  border-bottom: dotted 1px rgba(160, 160, 160, 0.65);
 }
 
 a:hover {
-    color : #85E57F
+  color: #85e57f;
 }
-
 
 /*
   This css file is for individual users to restyle items for their personal site,
@@ -233,149 +221,154 @@ a:hover {
   is an official part of the theme (ex. Pull Requests) should be included in main.css
   within the formating given.
 */
-#summary{
-	border-style: dashed;
-    border-width: 1px;
-    border-color: rgb(243, 197, 52);
-    background-color: rgb(254, 254, 184);
-    padding: 30px;
-    line-height: 1.8;
-  }
-#summary ol{
-    margin: 0;
-    list-style-type:decimal;
+#summary {
+  border-style: dashed;
+  border-width: 1px;
+  border-color: rgb(243, 197, 52);
+  background-color: rgb(254, 254, 184);
+  padding: 30px;
+  line-height: 1.8;
 }
-#summary ul{
-    margin: 0;
-    list-style-type:decimal;
+#summary ol {
+  margin: 0;
+  list-style-type: decimal;
 }
-#summary li{
-    margin:0;
+#summary ul {
+  margin: 0;
+  list-style-type: decimal;
 }
-
-table.dataframe{
-margin: 10px 10px 60px 10px;
-border-collapse: collapse;
-color: black;
-font-size: 14px;
-
-table-layout: fixed;
-width: auto;
-border:none;
-box-shadow: none;
+#summary li {
+  margin: 0;
 }
 
-pre.language-text{
-    background-color: white;
-}
-code.language-text{
-    color:black;
-}
-.dataframe > thead > tr > th{
-border:none;
-background-color: white;
+table.dataframe {
+  margin: 10px 10px 60px 10px;
+  border-collapse: collapse;
+  color: black;
+  font-size: 14px;
+
+  table-layout: fixed;
+  width: auto;
+  border: none;
+  box-shadow: none;
 }
 
-.dataframe > thead > tr:nth-last-child(1) > th{
-border-bottom: 1px solid black;
+pre.language-text {
+  background-color: white;
+}
+code.language-text {
+  color: black;
+}
+.dataframe > thead > tr > th {
+  border: none;
+  background-color: white;
+}
+
+.dataframe > thead > tr:nth-last-child(1) > th {
+  border-bottom: 1px solid black;
 }
 
 table.dataframe th {
-	font-weight: bold;
+  font-weight: bold;
 }
 
-.dataframe tbody, .dataframe thead, .dataframe tr, .dataframe th, .dataframe td {
-vertical-align: baseline;
+.dataframe tbody,
+.dataframe thead,
+.dataframe tr,
+.dataframe th,
+.dataframe td {
+  vertical-align: baseline;
 }
 
-.dataframe th, .dataframe td{
-text-align: right;
-vertical-align: middle;
-padding: 0.5em 0.5em;
-line-height: normal;
-white-space: normal;
-max-width: none;
-
+.dataframe th,
+.dataframe td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
 }
 
 table.dataframe > thead > tr > th:first-child,
 table.dataframe > thead > tr > td:first-child,
 table.dataframe > tbody > tr > td:first-child {
-border-right: none;
+  border-right: none;
 }
 table.dataframe > tbody > tr:nth-child(even) > td,
 table.dataframe > tbody > tr:nth-child(even) > th {
-	background-color: white;
+  background-color: white;
 }
 table.dataframe > tbody > tr:nth-child(odd) > td,
 table.dataframe > tbody > tr:nth-child(odd) > th {
-	background-color: #f4f4f4;
+  background-color: #f4f4f4;
 }
 
-h1,h2,h3,h4,h5,h6{
-    letter-spacing: 0;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 h1 {
-    font-size: 26px;
+  font-size: 26px;
 }
 
 h2 {
-    font-size: 22px;
+  font-size: 22px;
 }
 
 h3 {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 h4 {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 h5 {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 h6 {
-    font-size: 16px;
+  font-size: 16px;
 }
 
-
 .contents h1 {
-    margin: 80px 0 20px 0;
+  margin: 80px 0 20px 0;
 }
 
 .contents h2 {
-	margin: 60px 0 20px 0;
+  margin: 60px 0 20px 0;
 }
 
 .contents h3 {
-	margin: 40px 0 20px 0;
+  margin: 40px 0 20px 0;
 }
 
 .contents h4 {
-	margin: 20px 0 20px 0;
+  margin: 20px 0 20px 0;
 }
 
-
-.CenterImg img{
-	object-fit: contain;
-	max-width: 100%;
-	max-height: 100%;
-	width:auto;
-	height:auto;
-	margin:0 auto;
+.CenterImg img {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
 }
 
-.hlblock{
-	background-color: rgb(250, 237, 125);
-	color:rgb(255, 0, 0);
-	font-weight: bold;
+.hlblock {
+  background-color: rgb(250, 237, 125);
+  color: rgb(255, 0, 0);
+  font-weight: bold;
 }
 
-ol{
-    list-style-type : circle;
+ol {
+  list-style-type: circle;
 }
-
-

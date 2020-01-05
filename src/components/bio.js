@@ -8,12 +8,9 @@
 import React from "react"
 
 const Bio = () => {
-
   return (
     <div>
-      <p>
-        {` `}
-      </p>
+      <p>{` `}</p>
     </div>
   )
 }
