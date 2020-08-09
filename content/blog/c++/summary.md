@@ -390,6 +390,17 @@ ostream& operator<<(ostream& os, Point& pos){
 }
 ```
 
+5. 연산자 오버로딩 시 주의 사항
+   - Animal 클래스(부모) 에서 연산자 오버로딩
+   - Cat 클래스(자식)에서 연산자 오버로딩 안함
+   - 위의 상태에서 연산자 오버로딩 사용시 문제 발생 가능
+
+```cpp
+if (Cat1 == Cat2)
+// 서로 다른 객체 이지만 부모가 동일하여 True발생 가능함
+// Cat에도 연산자 오버로딩을 작성해야 함!
+```
+
 ## 15.1 단항 연산자 오버로딩(++)
 
 1. 전위 증가
@@ -650,3 +661,42 @@ try {
    - 주로 인자 전달시 불일치 제거를 위해 사용
 4. reinterpret_cast<T>(expr)
    - 전혀 상관이 없는 형 변환에 사용
+
+# 19. C++ 팁
+
+1. 클래스의 크기는 가장 큰 멤버 변수의 배수로 끝남
+   - double이 있으면 8의 배수로 끝남
+2. 각 변수는 자기 크기의 배수에서 시작함
+   - double는 8의 배수에에서 시작함
+   - 만약 int, double순으로 멤버 변수 선언시
+   - 4(int), 4(padding), 8(double)로 저장됨
+3. 클래스에 로우 포인터가 멤버 변수로 있으면
+   - 파괴자, 복사/이동 생성자, 복사/이동 대입 구현 필요
+4. 클래스에 로우 포인터 없다면
+   - defualt 복사/이동 생성자/대입연산자 사용
+5. 생성자가 private에 있는 것과 =delete는 동일
+6. 생성자 인자가 1개이면 앞에 explicit 명시
+   - 원하지 않는 형변환을 방지
+   - [링크](https://psyhm.tistory.com/m/13) 참고
+
+```cpp
+Point pt;
+pt = 10 //(x)
+pt = Point(10) // (O)
+```
+
+7. iotream 상속 구조
+   ![iostream 상속 구조](./img/summary_3.jpg)
+   - 여기서 basic iostream이 자주쓰는 iostream
+   - print 함수 구현시 ostream&을 인자로 사용하면, 상속 구조에 따라 ostreamstream, ofstream도 사용 가능
+
+```cpp
+//사용 1. cout
+    print(cout) => 화면에 결과 출력
+//사용 2. fstream
+    ofstream ofs{"test.txt"};
+    print(ofs) => 파일에 결과 쓰기
+//사용 3. stringstream
+    stringstream ss;
+    print(ss) => string에 쓰기
+```

@@ -1,0 +1,66 @@
+---
+title: "[C++]LR value 및 최적화"
+category: "C++"
+date: "2020-03-10"
+tags: ["C++", "left value", "right value", "최적화"]
+---
+
+# 1. 값, 포인터, 참조 전달
+
+1. 어셈블리 코드로 변경하면 포인터, 참조는 동일 형태
+2. 가급적 포인터가 필요한 경우 제외하고 참조 이용
+   - const int& 형태로 사용가능하기 때문!
+3. 값으로 전달 시 크기가 커지면 불필요한 공간 사용
+   - 참조 전달 사용
+
+# 2. L value, R value
+
+```cpp
+std::string a = "abc";
+std::string b = std::move(a);
+```
+
+1. a 는 L value
+2. "abc" 는 R value
+   - 한 번 불려지고 다음에 사용 안함
+3. std::move(L value)
+   - L value를 R value로 변경해줌
+   - a가 가리키던 "abc"가 b로 이동하고 a는 빈값 저장됨
+4. 예시
+
+```cpp
+// 값 전달 : 2번 복사
+void storeByValue(string s){
+    string b = s;
+}
+
+// L value 전달 : 1번 복사
+void storeByLRef(string& s){
+    string b = s;
+}
+
+// R value 전달 : 0번 복사
+void storeByRRref(string &&s){
+    string b = std::move(s);
+}
+```
+
+5. 값에 의한 전달
+   - 2번 복사 일어남
+6. L value 전달
+   - 1번 복사 일어남
+7. R value 전달
+   - 복사 없음
+
+# 3. 입력값 최적화
+
+1. 인자는 값에 의한 전달로 구현
+2. 내부에서 std::move로 작성
+3. 결과
+   - L value로 넘어오면 1 copy 수행
+   - R value로 넘어오면 0 copy 수행
+
+# 4. RVO(Return Value Optimization)
+
+1. return by value로 적용
+   - RVO 작동하여 0 copy 발생
