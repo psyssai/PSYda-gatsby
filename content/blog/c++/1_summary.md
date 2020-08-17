@@ -341,148 +341,7 @@ class Last : public MidOne, public MidTwo{...}
    - thunk 함수는 offset을 계산한 Lion::speak 함수를 가리킴
    - Lion 포인터로 Lion 가리키면 그냥 호출 가능
 
-# 15. 연산자 오버로딩
-
-1. 연산자 오버로딩시 const를 사용하라!
-2. 연산자 오버로딩 방법 두 가지
-
-1)멤버 함수 오버로딩
-
-- 구현 : 멤버 함수로 연산자를 오버로딩
-
-```cpp
-Point operator+(const Point& ref);
-// 사용시 해석
-pos.operator+(pos2);
-```
-
-2)전역 함수 오버로딩
-
-- 구현 : 전역 함수로 구현하고 클래스 내에서 friend 정의
-
-```cpp
-// 클래스 내부에서 정의
-friend Point operator+(Point&, Point&);
-// 클래스 밖에서 전역 함수 구현
-Point operator+(Point& pos1, Point& pos2){}
-// 사용시 해석
-operator+(pos1, pos2);
-```
-
-3. 무조건 전역 함수 오버로딩을 사용하는 경우
-
-   - Point 객체에 상수 3을 곱할 경우
-
-```cpp
-Point operator*(int, Point&);
-
-//사용
-Point pos2 = pos * 3;
-```
-
-4. 객체를 cout 가능하게 하기
-   - ostream을 전역 함수 오버로딩 사용
-
-```cpp
-ostream& operator<<(ostream& os, Point& pos){
-    os <<'('<< x << ',' << y << ')' << endl;
-    return os;
-}
-```
-
-5. 연산자 오버로딩 시 주의 사항
-   - Animal 클래스(부모) 에서 연산자 오버로딩
-   - Cat 클래스(자식)에서 연산자 오버로딩 안함
-   - 위의 상태에서 연산자 오버로딩 사용시 문제 발생 가능
-
-```cpp
-if (Cat1 == Cat2)
-// 서로 다른 객체 이지만 부모가 동일하여 True발생 가능함
-// Cat에도 연산자 오버로딩을 작성해야 함!
-```
-
-## 15.1 단항 연산자 오버로딩(++)
-
-1. 전위 증가
-
-```cpp
-Point& operator++(){
-    m_nX++;
-    m_nY++;
-    return *this;
-}
-++pos1;
-```
-
-2. 후위 증가
-
-```cpp
-const Point operator++(int){
-    const Point refPos(m_nX, m_nY);
-    m_nX += 1;
-    m_nY += 2;
-    return refPos;
-}
-pos1++;
-```
-
-## 15.2 대입 연산자 오버로딩
-
-1. 이미 생성 및 초기화 되었으면 = 기호 사용시 대입 연산자 호출됨
-2. 대입 연산자 미구현 시 Defualt 대입 연산자 생성 및 호출
-   - 얕은 복사 진행
-3. 상속 시 부모 클래스의 대입연산자를 명시적으로 호출 필요
-
-```cpp
-First::operator=(ref);
-```
-
-## 15.3 new, delete 오버로딩
-
-1. new 연산자 오버로딩
-   - new 연산자의 수행 범위 3가지
-     - 메모리 할당
-     - 생성자 호출
-     - 할당 자료형 변환
-   - 위 중 메모리 할당 역할만 오버로딩 가능
-2. new, delete 오버로딩 함수는 static 함수
-   - 일반 함수로 선언해도 static 함수로 간주
-   - 객체 생성 전 호출되어야되는 함수이기 때문
-3. 구현 방법
-
-```cpp
-//new
-void* operator new(size_t size) {...}
-void* operator new[](size_t size()) {
-    void* adr = new char[size];
-    return adr;
-}
-
-//delete
-void operator delete(void* adr)
-void operator delete[](void* adr){
-    delete[] adr;
-}
-```
-
-## 15.4 포인터 연산자 오버로딩
-
-1. 포인터 연산자 오버로딩
-
-```cpp
-Number& operator*(){
-    return *this;
-```
-
-2. 지시 연산자 오버로딩
-
-```cpp
-Number* operator->(){
-    return this;
-}
-```
-
-# 16. 템플릿
+# 15. 템플릿
 
 1. 함수 템플릿 사용 방법
 
@@ -579,7 +438,7 @@ class SimpleArray{
 }
 ```
 
-# 17. 예외 처리
+# 16. 예외 처리
 
 1. try
    - 예외를 발견 한다.
@@ -646,7 +505,7 @@ try {
 }
 ```
 
-# 18. C++ 형변환 연산자
+# 17. C++ 형변환 연산자
 
 1. dynamic_cast<T>(expr)
    - 상속 관계에서 안전한 형 변환 가능
@@ -662,7 +521,62 @@ try {
 4. reinterpret_cast<T>(expr)
    - 전혀 상관이 없는 형 변환에 사용
 
-# 19. C++ 팁
+# 18. 함수 포인터
+
+1. 정적 함수 호출
+   - 일반 함수나 static 멤버 함수를 가리키는 포인터
+   - 선언
+
+```cpp
+// 선언
+void (*pFunc)(int);
+// 반환값이 void이고 인자가 int형 하나인 함수를 가리킬 수 있는 함수 포인터
+```
+
+2. 멤버 함수 호출
+   - 선언
+
+```cpp
+void(Point::*pFunc)();
+// 반환값이 void이고 인자가 없는 Point 멤버 함수를 가리킬 수 있는 함수 포인터 선언
+
+//사용
+Point pt;
+(pt.*pFunc)(); // 객체로 사용
+Point *p;
+(p->*pFunc)(); // 주소로 사용
+```
+
+# 19. 함수 객체
+
+1. 장점
+   - 객체 이므로 멤버 변수, 멤버 함수를 가질 수 있음
+   - 속도가 일반 함수보다 빠름
+   - 인라인화 될 수 있음(함수 포인터는 안됨)
+   - 컴파일러가 쉽게 최적화 가능
+
+```cpp
+//선언
+struct Adder{
+   int operator()(int a, int b){
+      return a_b;
+   }
+};
+
+
+int main(){
+// 사용1
+   Adder add;
+   add(3,2);
+
+// 사용2 : 인자로 전달
+   for_each(arr, arr+5, Adder());
+}
+
+
+```
+
+# 20. C++ 팁
 
 1. 클래스의 크기는 가장 큰 멤버 변수의 배수로 끝남
    - double이 있으면 8의 배수로 끝남
