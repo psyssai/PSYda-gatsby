@@ -46,7 +46,7 @@ class list
    | lt.assign(b,e)          | lt를 반복자 구간 [b,e)로 할당                                               |
    | lt.front()              | lt의 첫 번째 원소 참조                                                      |
    | lt.back()               | lt의 마지막 원소 참조                                                       |
-   | p=lt.begin()            | lt는 v의 첫원소를 가리키는 반복자                                           |
+   | p=lt.begin()            | p는 lt의 첫원소를 가리키는 반복자                                           |
    | p=lt.end()              | p는 lt의 끝을 나타내는 반복자                                               |
    | lt.clear()              | lt의 모든 원소 제거                                                         |
    | lt.empty()              | lt가 비었는지 조사                                                          |

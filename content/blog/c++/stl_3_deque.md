@@ -45,7 +45,7 @@ class deque
    | dq.at(i)         | dq의 i번째 원소를 참조                                  |
    | dq.front()       | dq의 첫 번째 원소 참조                                  |
    | dq.back()        | dq의 마지막 원소 참조                                   |
-   | p=dq.begin()     | dq는 v의 첫원소를 가리키는 반복자                       |
+   | p=dq.begin()     | p는 dq의 첫원소를 가리키는 반복자                       |
    | p=dq.end()       | p는 dq의 끝을 나타내는 반복자                           |
    | dq.clear()       | dq의 모든 원소 제거                                     |
    | dq.empty()       | dq가 비었는지 조사                                      |
