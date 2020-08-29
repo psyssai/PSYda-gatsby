@@ -1,5 +1,5 @@
 ---
-title: "[STL] 시퀀스 컨테이너3- list"
+title: "[STL-04] 시퀀스 컨테이너3- list"
 category: "C++/STL"
 date: "2020-05-22"
 tags: ["C++", "STL", "list"]
@@ -52,12 +52,12 @@ class list
    | lt.empty()              | lt가 비었는지 조사                                                          |
    | q=lt.erase(p)           | p가 가리키는 원소 제거(q는 다음 원소 가리킴)                                |
    | q=lt.erase(b,e)         | 반복자 구간[b,e)의 모든 원소를 제거(q는 다음 원소)                          |
-   | q=lt.insert(p.x)        | lt가 가리키는 위치에 x값 삽입(q는 삽입한 원소 가리킴)                       |
-   | lt.insert(p,n,x)        | p가 가리키는 위치이 n개의 x값 삽입                                          |
+   | q=lt.insert(p,x)        | p가 가리키는 위치에 x값 삽입(q는 삽입한 원소 가리킴)                        |
+   | lt.insert(p,n,x)        | p가 가리키는 위치에 n개의 x값 삽입                                          |
    | lt.insert(p,b,e)        | p가 가리키는 위치에 반복자 구간[b,e)의 원소를 삽입                          |
    | x=lt.max_size()         | x는 lt가 담을 수 있는 최대 원소 개수(메모리 크기)                           |
-   | lt.merge(lt2)           | lt2를 lt로 합병 정렬한다(오름차순 : less)                                   |
-   | lt.merge(lt2, pred)     | lt2를 lt로 합병 정렬한다(pred를 기준으로 합병)                              |
+   | lt.merge(lt2)           | lt2를 lt로 합병 정렬(오름차순 : less)                                       |
+   | lt.merge(lt2, pred)     | lt2를 lt로 합병 정렬(pred를 기준으로 합병)                                  |
    | lt.pop_back()           | lt의 마지막 원소 제거                                                       |
    | lt.pop_front()          | lt의 첫 원소 제거                                                           |
    | lt.push_back(x)         | lt의 끝에 x 추가                                                            |
@@ -73,8 +73,8 @@ class list
    | lt.sort()               | lt의 모든 원소를 오름차순으로 정렬                                          |
    | lt.sort(pred)           | lt의 모든 원소를 pred를 기준으로 정렬                                       |
    | lt.splice(p, lt2)       | p가 가리키는 위치에 lt2의 모든 원소를 잘라 붙임                             |
-   | lt.splice(p, lt2, q)    | p가 가리키는 위치에 lt2의 q가 가리키는 우너소를 잘라 붙임                   |
-   | lt.splice(p, lt2, b, e) | p가 가리키는 위치에 lt2의 순차열 [b,e]를 잘라 붙임                          |
+   | lt.splice(p, lt2, q)    | p가 가리키는 위치에 lt2의 q가 가리키는 원소를 잘라 붙임                     |
+   | lt.splice(p, lt2, b, e) | p가 가리키는 위치에 lt2의 순차열 [b,e)를 잘라 붙임                          |
    | lt.swap(lt2)            | lt와 lt2를 swap                                                             |
    | lt.unique()             | 인접한 원소의 값이 같다면 유일한 원소의 순차열로 만듦                       |
    | lt.unique(pred)         | 인접한 원소가 pred(이항 조건자)의 기준에 맞다면 유일한 원소의 순차열로 만듦 |
@@ -89,20 +89,20 @@ class list
 
 6. **<span style="color:red">멤버 형식</span>**
 
-| 코드                   | 내용                                |
-| ---------------------- | ----------------------------------- |
-| allocator_type         | 메모리 관리자 형식                  |
-| const_iterator         | const 반복자 형식                   |
-| const_pointer          | const value_type\* 형식             |
-| const_reference        | const value_type& 형식              |
-| const_reverse_iterator | const 역 반복자 형식                |
-| difference_type        | 두 반복자 차이의 형식               |
-| iterator               | 반복자 형식                         |
-| pointer                | value_type\* 형식                   |
-| reference              | value_type& 형식                    |
-| reverse_iterator       | 역 반복자 형식                      |
-| size_type              | 첨자(index)나 원소의 개수 등의 형식 |
-| value_type             | 원소의 형식                         |
+| 코드                     | 내용                                |
+| ------------------------ | ----------------------------------- |
+| allocator_type           | 메모리 관리자 형식                  |
+| const_iterator           | const 반복자 형식                   |
+| const_pointer            | const value_type\* 형식             |
+| const_reference          | const value_type& 형식              |
+| const \_reverse_iterator | const 역 반복자 형식                |
+| difference_type          | 두 반복자 차이의 형식               |
+| iterator                 | 반복자 형식                         |
+| pointer                  | value_type\* 형식                   |
+| reference                | value_type& 형식                    |
+| reverse_iterator         | 역 반복자 형식                      |
+| size_type                | 첨자(index)나 원소의 개수 등의 형식 |
+| value_type               | 원소의 형식                         |
 
 # 2 상세 내용
 
@@ -150,7 +150,7 @@ bool Pred(int first, int second){
    - 리스트는 양방향 접근 반복자여서 알고리즘 sort 사용 못함
    - 리스트는 멤버 함수로 sort 함수 지원
    - lt.sort() : 오름차순 정렬
-   - lt.sort(greater<int>()) : 내림 차순 정렬
+   - lt.sort(greater\<int>()) : 내림 차순 정렬
 
 9. lt1.merge(lt2)
    - lt2를 lt1에 합병 정렬

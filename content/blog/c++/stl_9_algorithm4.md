@@ -1,5 +1,5 @@
 ---
-title: "[STL] 알고리즘4-변경 알고리즘"
+title: "[STL-09] 알고리즘4-변경 알고리즘"
 category: "C++/STL"
 date: "2020-06-20"
 tags: ["C++", "STL", "algorithm"]

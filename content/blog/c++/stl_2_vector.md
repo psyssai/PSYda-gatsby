@@ -1,5 +1,5 @@
 ---
-title: "[STL] 시퀀스 컨테이너1- vector"
+title: "[STL-02] 시퀀스 컨테이너1- vector"
 category: "C++/STL"
 date: "2020-05-11"
 tags: ["C++", "STL", "vector"]
@@ -71,20 +71,20 @@ class vector
 
 7. **<span style="color:red">멤버 형식</span>**
 
-| 코드                   | 내용                                |
-| ---------------------- | ----------------------------------- |
-| allocator_type         | 메모리 관리자 형식                  |
-| const_iterator         | const 반복자 형식                   |
-| const_pointer          | const value_type\* 형식             |
-| const_reference        | const value_type& 형식              |
-| const_reverse_iterator | const 역 반복자 형식                |
-| difference_type        | 두 반복자 차이의 형식               |
-| iterator               | 반복자 형식                         |
-| pointer                | value_type\* 형식                   |
-| reference              | value_type& 형식                    |
-| reverse_iterator       | 역 반복자 형식                      |
-| size_type              | 첨자(index)나 원소의 개수 등의 형식 |
-| value_type             | 원소의 형식                         |
+| 코드                     | 내용                                |
+| ------------------------ | ----------------------------------- |
+| allocator_type           | 메모리 관리자 형식                  |
+| const_iterator           | const 반복자 형식                   |
+| const_pointer            | const value_type\* 형식             |
+| const_reference          | const value_type& 형식              |
+| const\_ reverse_iterator | const 역 반복자 형식                |
+| difference_type          | 두 반복자 차이의 형식               |
+| iterator                 | 반복자 형식                         |
+| pointer                  | value_type\* 형식                   |
+| reference                | value_type& 형식                    |
+| reverse_iterator         | 역 반복자 형식                      |
+| size_type                | 첨자(index)나 원소의 개수 등의 형식 |
+| value_type               | 원소의 형식                         |
 
 # 2. 상세 내용
 

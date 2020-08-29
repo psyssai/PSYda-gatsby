@@ -1,5 +1,5 @@
 ---
-title: "[STL] 알고리즘2-원소를 수정하는 알고리즘"
+title: "[STL-07] 알고리즘2-원소를 수정하는 알고리즘"
 category: "C++/STL"
 date: "2020-06-10"
 tags: ["C++", "STL", "algorithm"]
@@ -7,26 +7,26 @@ tags: ["C++", "STL", "algorithm"]
 
 # 1. 원소를 수정하는 알고리즘 리스트
 
-| 알고리즘                                                | 설명                                                                                                                                                |
-| ------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| p=copy(b,e,t)                                           | 구간 [b,e)의 원소를 [t,p)로 모두 복사                                                                                                               |
-| p=copy_backward(b,e,t)                                  | 구간 [b,e)의 원소를 마지막 원소부터 [p,t)로 모두 복사                                                                                               |
-| fill(b,e,x)                                             | 구간 [b,e)의 모든 원소를 x로 채움.                                                                                                                  |
-| fill_n(b,n,x)                                           | 구간 [b,b+n)의 모든 원소를 x로 채움.                                                                                                                |
-| f=for_each(b,e,f)                                       | 구간 [b,e)의 모든 원소에 f(\*p) 동작을 적용한다. f를 다시 되돌려 줌                                                                                 |
-| generate(b,e,f)                                         | 구간 [b,e)의 모든 원소를 f()로 채움                                                                                                                 |
-| generate_n(b,e,f) 구간 [b,b+n)의 모든 원소를 f()로 채움 |
-| iter_swap(p,q)                                          | 반복자 p, q가 가리키는 *p와 *q의 원소를 교환                                                                                                        |
-| p=merge(b,e,b2,e2,t)                                    | 정렬된 순차열 [b,e)와 [b2,e2)를 [t,p)로 합병 정렬                                                                                                   |
-| p=merge(b,e,b2,e2,t,f)                                  | 정렬된 순차열 [b,e)와 [b2,e2)를 [t,p)로 합병 정렬. 이때 비교는 f를 사용                                                                             |
-| replace(b,e,x,x2)                                       | 구간 [b,e)의 x인 원소를 x2로 수정                                                                                                                   |
-| replace_if(b,e,f,x2)                                    | 구간 [b,e)의 f(\*p)가 참인 원소를 x2로 수정                                                                                                         |
-| p=replace_copy(b,e,t,x,x2)                              | 구간 [b,e)의 x인 원소를 x2로 수정하여 [t,p)로 복사                                                                                                  |
-| p=replace\\\_copy_if(b,e,t,f,x2)                        | 구간 [b,e)의 f(\*p)가 참인 원소를 x2로 수정하여 [t,p)로 복사                                                                                        |
-| swap(a,b)                                               | a와 b를 교환                                                                                                                                        |
-| swap_ranges(b,e,b2)                                     | 구간 [b,e)의 원소와 구간 [b2, b2+(e-b))의 원소를 교환                                                                                               |
-| p=transform(b,e,t,f)                                    | 구간 [b,e)의 모든 원소를 f(\*p)하여 [t, t+(e-b))에 저장. p는 저장된 마지막 원소의 반복자 (t+(e-b)) 임                                               |
-| p=transform(b,e,b2,t,f)                                 | 구간 [b,e)와 [b2, b2+(e-b))의 두 순차열의 반복자 p,q일 때 모든 원소를 f(*p, *q) 하여 [t,t+(e-b))에 저장. p는저장된 마지막 원소의 반복자(t+(e-b)) 임 |
+| 알고리즘                        | 설명                                                                                                                                                |
+| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| p=copy(b,e,t)                   | 구간 [b,e)의 원소를 [t,p)로 모두 복사                                                                                                               |
+| p=copy_backward(b,e,t)          | 구간 [b,e)의 원소를 마지막 원소부터 [p,t)로 모두 복사                                                                                               |
+| fill(b,e,x)                     | 구간 [b,e)의 모든 원소를 x로 채움.                                                                                                                  |
+| fill_n(b,n,x)                   | 구간 [b,b+n)의 모든 원소를 x로 채움.                                                                                                                |
+| f=for_each(b,e,f)               | 구간 [b,e)의 모든 원소에 f(\*p) 동작을 적용한다. f를 다시 되돌려 줌                                                                                 |
+| generate(b,e,f)                 | 구간 [b,e)의 모든 원소를 f()로 채움                                                                                                                 |
+| generate_n(b,e,f)               | 구간 [b,b+n)의 모든 원소를 f()로 채움                                                                                                               |
+| iter_swap(p,q)                  | 반복자 p, q가 가리키는 *p와 *q의 원소를 교환                                                                                                        |
+| p=merge(b,e,b2,e2,t)            | 정렬된 순차열 [b,e)와 [b2,e2)를 [t,p)로 합병 정렬                                                                                                   |
+| p=merge(b,e,b2,e2,t,f)          | 정렬된 순차열 [b,e)와 [b2,e2)를 [t,p)로 합병 정렬. 이때 비교는 f를 사용                                                                             |
+| replace(b,e,x,x2)               | 구간 [b,e)의 x인 원소를 x2로 수정                                                                                                                   |
+| replace_if(b,e,f,x2)            | 구간 [b,e)의 f(\*p)가 참인 원소를 x2로 수정                                                                                                         |
+| p=replace_copy(b,e,t,x,x2)      | 구간 [b,e)의 x인 원소를 x2로 수정하여 [t,p)로 복사                                                                                                  |
+| p=replace \_copy_if(b,e,t,f,x2) | 구간 [b,e)의 f(\*p)가 참인 원소를 x2로 수정하여 [t,p)로 복사                                                                                        |
+| swap(a,b)                       | a와 b를 교환                                                                                                                                        |
+| swap_ranges(b,e,b2)             | 구간 [b,e)의 원소와 구간 [b2, b2+(e-b))의 원소를 교환                                                                                               |
+| p=transform(b,e,t,f)            | 구간 [b,e)의 모든 원소를 f(\*p)하여 [t, t+(e-b))에 저장. p는 저장된 마지막 원소의 반복자 (t+(e-b)) 임                                               |
+| p=transform(b,e,b2,t,f)         | 구간 [b,e)와 [b2, b2+(e-b))의 두 순차열의 반복자 p,q일 때 모든 원소를 f(*p, *q) 하여 [t,t+(e-b))에 저장. p는저장된 마지막 원소의 반복자(t+(e-b)) 임 |
 
 # 2. 예시
 
@@ -114,7 +114,6 @@ generate_n(v.begin(), 3, Interger(100));
    - 결과는 [t,t+(e-b)+(e2-b2))의 순차열
    - 반드시 정렬되어 있어야 가능함
    - default는 less(오름차순 정렬)
-   - ex)
 
 ```cpp
 vector<int> v1 = {10,30,50,60,80};
@@ -173,9 +172,9 @@ replace_if(v.begin(), v.end(), Pred, 0);
 // v = {10,20,0,0,0,60,70,80}
 ```
 
-11. replace\\\_copy, replace\\\_copy_if
+11. replace \_copy, replace \_copy_if
     - replace_copy(b,e,t,x,x2) : 구간 [b,e)에서 x를 x2로 변경 후 [t,p)로 복사
-    - replace\\\_copy_if(b,e,t,f,x2) : 구간 [b,e)에서 f가 참인 원소를 x2로 변경 후 [t,p)로 복사
+    - replace \_copy_if(b,e,t,f,x2) : 구간 [b,e)에서 f가 참인 원소를 x2로 변경 후 [t,p)로 복사
 
 ```cpp
 bool Pred(int n){

@@ -1,5 +1,5 @@
 ---
-title: "[STL] 연관 컨테이너"
+title: "[STL-05] 연관 컨테이너"
 category: "C++/STL"
 date: "2020-05-29"
 tags: ["C++", "STL", "set"]
@@ -78,28 +78,28 @@ class set
 
 6) **<span style="color:red">멤버 형식</span>**
 
-| 코드                   | 내용                                |
-| ---------------------- | ----------------------------------- |
-| allocator_type         | 메모리 관리자 형식                  |
-| const_iterator         | const 반복자 형식                   |
-| const_pointer          | const value_type\* 형식             |
-| const_reference        | const value_type& 형식              |
-| const_reverse_iterator | const 역 반복자 형식                |
-| difference_type        | 두 반복자 차이의 형식               |
-| iterator               | 반복자 형식                         |
-| key_compare            | 키 조건자 형식                      |
-| key_type               | key의 형식                          |
-| pointer                | value_type\* 형식                   |
-| reference              | value_type& 형식                    |
-| reverse_iterator       | 역 반복자 형식                      |
-| size_type              | 첨자(index)나 원소의 개수 등의 형식 |
-| value_compare          | 원소 조건자 형식                    |
-| value_type             | 원소의 형식                         |
+| 코드                     | 내용                                |
+| ------------------------ | ----------------------------------- |
+| allocator_type           | 메모리 관리자 형식                  |
+| const_iterator           | const 반복자 형식                   |
+| const_pointer            | const value_type\* 형식             |
+| const_reference          | const value_type& 형식              |
+| const \_reverse_iterator | const 역 반복자 형식                |
+| difference_type          | 두 반복자 차이의 형식               |
+| iterator                 | 반복자 형식                         |
+| key_compare              | 키 조건자 형식                      |
+| key_type                 | key의 형식                          |
+| pointer                  | value_type\* 형식                   |
+| reference                | value_type& 형식                    |
+| reverse_iterator         | 역 반복자 형식                      |
+| size_type                | 첨자(index)나 원소의 개수 등의 형식 |
+| value_compare            | 원소 조건자 형식                    |
+| value_type               | 원소의 형식                         |
 
 # 2 상세 내용
 
 1. 원소 추가는 insert() 만 제공
-   - push_back, pop_front() 등의 함수 제공 안함
+   - push \_back() , pop_front() 등의 함수 제공 안함
    - 반환값은 pair객체이면 first는 키의 위치를 가리키는 반복자
    - second 는 성공 실패를 나타내는 bool
    - 중복값이 있을 경우 second의 false 리턴
@@ -185,9 +185,9 @@ s.equal_range(30)
    - 원소 30의 개수(중복 허용)
 3. ms.find(30)
    - 원소 30의 첫 위치(중복일 경우)
-4. lower_iter = ms.lower_bound(30)
+4. lower \_iter = ms.lower_bound(30)
    - 원소 30이 시작되는 위치
-5. upper_iter = ms.uppter_bound(30)
+5. upper \_iter = ms.uppter_bound(30)
    - 원소 30의 끝 다음 위치
    - 30, 30, 50 의 경우 50
 

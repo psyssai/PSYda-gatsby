@@ -1,5 +1,5 @@
 ---
-title: "[STL] 알고리즘1-원소를 수정하지 않는 알고리즘"
+title: "[STL-06] 알고리즘1-원소를 수정하지 않는 알고리즘"
 category: "C++/STL"
 date: "2020-06-03"
 tags: ["C++", "STL", "algorithm"]
@@ -9,17 +9,17 @@ tags: ["C++", "STL", "algorithm"]
 
 | 알고리즘                             | 설명                                                                                                                                                                                  |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| p=adjacent_find(b,e)                 | p는 구간 [b,e) 원소 중 _p == _(p+1)인 첫 원소를 가리키는 반복자                                                                                                                       |
-| p=adjacent_find(b,e,f)               | p는 구간 [b,e) 원소 중 f(_p, _(p+1))이 참인 첫 원소를 가리키는 반복자                                                                                                                 |
+| p=adjacent_find(b,e)                 | p는 구간 [b,e) 원소 중 \*p == \*(p+1)인 첫 원소를 가리키는 반복자                                                                                                                     |
+| p=adjacent_find(b,e,f)               | p는 구간 [b,e) 원소 중 f(\*p, \*(p+1))이 참인 첫 원소를 가리키는 반복자                                                                                                               |
 | n=count(b,e,x)                       | n은 구간 [b,e)의 원소 중 x의 개수                                                                                                                                                     |
 | n = count_if(b,e,f)                  | n은 구간[b,e)의 원소 중 f(\*p) 가 참인 원소 개수                                                                                                                                      |
-| equal(b,e,b2)                        | [b,e) 와 [b2, b2+(e-b)의 모든 원소가 같은가?                                                                                                                                          |
-| equal(b,e,b2,f)                      | [b,e) 와 [b2, b2+(e-b)의 모든 원소가 f(*p, *q)가 참인가?                                                                                                                              |
+| equal(b,e,b2)                        | [b,e) 와 [b2, b2+(e-b))의 모든 원소가 같은가?                                                                                                                                         |
+| equal(b,e,b2,f)                      | [b,e) 와 [b2, b2+(e-b))의 모든 원소가 f(*p, *q)가 참인가?                                                                                                                             |
 | p=find(b,e,x)                        | p는 구간 [b,e)에서 x와 같은 첫 원소의 반복자                                                                                                                                          |
 | p=find_end(b,e,b2,e2)                | p는 구간 [b,e)의 순차열 중 구간[b2,e2)의 순차열과 일치하는 순차열 첫 원소의 반복자. 단 [b2,e2)와 일치하는 순차열이 여러 개 라면 마지막 순차열 첫 원소의 반복자                        |
 | p=find_end(b,e,b2,e2,f)              | p는 구간 [b,e)의 순차열 중 구간[b2,e2)의 순차열과 일치하는 순차열 첫 원소의 반복자. 단 [b2,e2)와 일치하는 순차열이 여러 개 라면 마지막 순차열 첫 원소의 반복자. 이 때 비교는 f를 사용 |
-| p=find_first_of(b,e,b2,e2)           | p는 구간 [b,e)에서 구간 [b2, e2)의 원소 중 가은 원소가 발견된 첫 원소의 반복자                                                                                                        |
-| p=find_first_of(b,e,b2,e2,f)         | p는 구간 [b,e)에서 구간 [b2,e2)의 원소 중 같은 원소가 발견된 첫 원소의 반복자. 이때 비교는 f를 사용                                                                                   |
+| p=find \_first_of(b,e,b2,e2)         | p는 구간 [b,e)에서 구간 [b2, e2)의 원소 중 가은 원소가 발견된 첫 원소의 반복자                                                                                                        |
+| p=find \_first_of(b,e,b2,e2,f)       | p는 구간 [b,e)에서 구간 [b2,e2)의 원소 중 같은 원소가 발견된 첫 원소의 반복자. 이때 비교는 f를 사용                                                                                   |
 | p=find_if(b,e,f)                     | p는 구간[b,e)에 f(\*p)가 참인 원소를 가리키는 반복자                                                                                                                                  |
 | f=for_each(b,e,f)                    | 구간 [b,e)의 모든 원소에 f(\*p) 동작을 적용한다. f를 다시 되돌려 준다.                                                                                                                |
 | lexicographical_compare(b,e,b2,e2)   | 구간 [b,e)의 순차열이 구간 [b2,e2)의 순차열보다 작다면 true, 아니면 false를 반환                                                                                                      |
@@ -43,7 +43,6 @@ tags: ["C++", "STL", "algorithm"]
 
 1. iter = find_end(v1.begin(), v1.end(), v2.begin(), v2.end())
    - v1의 [begin,end) 범위에서 v2의 [begin,end) 순차열을 포함하는 제일 마지막 반복자 반환
-   - ex)
 
 ```cpp
 vector<int> v1 = {30,40,10,30,40};
@@ -69,7 +68,7 @@ iter = search(v1.begin(), v1.end(), v2.begin(), v2.end());
 
    - [v.begin(), v.end()) 에서 30이 3번 연속한 첫 원소의 반복자 반환
 
-5. iter = find_first_of(v1.begin(), v1.end(), v2.begin(), v2.end())
+5. iter = find \_first_of(v1.begin(), v1.end(), v2.begin(), v2.end())
    - v1의 구간 [begin, end) 순차열에서 v2의 구간 [begin,end) 원소 중 같은 원소가 처음으로 발견되는 첫 원소의 반복자 반환
    - ex)
 
@@ -82,7 +81,7 @@ iter = find_first_of(v1.begin(), v1.end(), v2.begin(), v2.end())
 
 ```
 
-6. iter = find_first_of(v1.begin(), v1.end(), v2.begin(), v2.end(), Pred)
+6. iter = find \_first_of(v1.begin(), v1.end(), v2.begin(), v2.end(), Pred)
    - Pred : 이항 연산자
    - Pred 함수가 청므으로 참이 나오는 위치 반환
    - ex)
@@ -103,7 +102,7 @@ iter = find_first_of(v1.begin(), v1.end(), v2.begin(), v2.end(), Pred)
 
 # 3. 기타
 
-1. iter=adjacent(v.begin(),v.end()
+1. iter=adjacent(v.begin(),v.end())
    - v의 연속된 원소가 같아지는 첫 원소의 반복자 반환
    - 10,20,30,30인 경우 첫 30의 반복자 반환
    - 못찾으면 v.end()를 반환
@@ -149,7 +148,6 @@ bool b = equal(v1.begin(), v1.end(), v2.begin(), Pred)
    - Print : 요소와 같은 형태의 인자를 가지는 단항 함수
    - v의 [begin,end) 범위의 요소를 Print 함수에 전달하여 함수 수행
    - 함수 객체를 전달하면 다양한 형태로 사용 가능
-   - ex)
 
 ```cpp
 struct PrintFunctor{
