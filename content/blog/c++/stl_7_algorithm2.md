@@ -213,7 +213,7 @@ swap_ranges(v1.begin(), v1.end(), v2.begin());
     - 반환값을 순차열 [t, t+(e-b))로 저장
 
 ```cpp
-int FUnc(int n){
+int Func(int n){
    return n+5;
 } // n에 5를 더함
 

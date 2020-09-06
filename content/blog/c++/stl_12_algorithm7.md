@@ -187,6 +187,7 @@ auto iter = partial_sum(v1.begin(), v1.end(), v2.begin(), Multi);
 // 6000 => 10 * 20 * 30
 // ...
 // iter - 1 => 12000000을 가리킴
+
 ```
 
 # 참고
