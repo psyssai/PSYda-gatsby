@@ -1,49 +1,16 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
+import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-class BlogIndex extends React.Component {
-  /*
-  constructor() {
-    this.state = { category: '' };
-  }
-
-  changeCategory = (category) => {
-    this.setState({category: category});
-  }
-  */
-  findCategory(basestr, fstr) {
-    if (basestr == undefined || basestr == null) {
-      return false
-    } else {
-      if (basestr.indexOf("/" + fstr) == -1) {
-        return false
-      } else {
-        return true
-      }
-    }
-  }
-
+class CategoryPage extends React.Component {
   render() {
-    const { data, location } = this.props
-
-    const selectedCategory = location.state.selectedCategory
+    const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
     const viewPosts = posts.filter(({ node }) => {
-      // 찾는 category가 없으면 전체 리스트 출력
-      if (selectedCategory == undefined) {
-        return node.excerpt !== ""
-      } else {
-        // 선택된 category만 출력
-        if (this.findCategory(node.frontmatter.category, selectedCategory)) {
-          return node.excerpt !== ""
-        } else {
-          return false
-        }
-      }
+      return node.excerpt !== ""
     })
     return (
       <Layout title={siteTitle}>
@@ -77,7 +44,7 @@ class BlogIndex extends React.Component {
   }
 }
 
-export default BlogIndex
+export default CategoryPage
 
 export const pageQuery = graphql`
   query {

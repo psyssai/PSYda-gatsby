@@ -19,7 +19,7 @@ class Header extends React.Component {
           </li>
           <li className="categories">
             {" "}
-            <Link to={`/categories`}> Categories </Link>{" "}
+            <Link to={`/categorypage`}> Categories </Link>{" "}
           </li>
           <li className="memo">
             {" "}

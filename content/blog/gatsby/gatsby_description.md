@@ -1,12 +1,12 @@
 ---
-title: "[Gatsby]2.Plugin" 
-category: "Gatsby"
+title: "[Gatsby]2.Plugin"
+category: "ETC/Gatsby"
 date: "2019-09-26"
 path: "/gatsby/1_setup"
 ---
 
-
 # 1.gatsby-source-filesystem
+
 Local File System에서 Gatsby Application의 데이터를 소싱하기 위한 플러그인
 
 - 파일로부터 File 노드를 만듬
@@ -15,11 +15,13 @@ Local File System에서 Gatsby Application의 데이터를 소싱하기 위한 �
 - EX2) gatsby-transformer-remark는 markdown 파일을 MarkdownRemark 노드로 변환하여 HTML 표현을 쿼리할 수 있음
 
 # 1.1 설치
+
 npm install --save gatsby-source-filesystem
 
-
 # 1.2 사용 방법
+
 gatsby-config.js 에 내용 추가
+
 ```js
 // In your gatsby-config.js
 module.exports = {

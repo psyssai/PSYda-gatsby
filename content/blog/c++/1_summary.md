@@ -1,6 +1,6 @@
 ---
 title: "[C++]기초 내용 정리"
-category: "C++"
+category: "C++/C++"
 date: "2020-03-01"
 tags: ["C++"]
 ---

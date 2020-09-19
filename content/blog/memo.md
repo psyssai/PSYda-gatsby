@@ -1,14 +1,16 @@
 ---
-title: "해야할 것들" 
+title: "해야할 것들"
 date: "2017-10-28"
 ---
 
 # 1. Category
-1) 사이드바 Category 추가
-2) Header Categories 눌렀을 떄 뜰 화면 추가
+
+1. 사이드바 Category 추가
+2. Header Categories 눌렀을 떄 뜰 화면 추가
 
 # 2. Home Page
-1) Home Page UI 적용
+
+1. Home Page UI 적용
 
 # 3. 검색 버튼 및 검색 기능 추가
 
