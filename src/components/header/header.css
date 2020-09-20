@@ -5,10 +5,15 @@
     /* 높이값 설정 및 Header 세로방향 가운데 정렬 */
     height: 2.5em;
     line-height: 2.5em;
+    display: flex;
+    justify-content: space-between;
+  }
+  #header span.sidebarClick {
+    padding: 0 0 0 25px;
+    font-size: 20px;
   }
   #header h1 {
-    padding: 0 0 0 25px;
-    min-width: 200px;
+    padding: 0 25px 0 0;
     font-size: 20px;
   }
   #header nav {
@@ -47,6 +52,9 @@
     z-index: 10000;
   }
 
+  #header span.sidebarClick {
+    display: none;
+  }
   #header h1 {
     padding: 0 0 0 50px;
     min-width: 300px;

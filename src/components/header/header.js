@@ -2,9 +2,12 @@ import React from "react"
 import { Link } from "gatsby"
 import "./header.css"
 import propTypes from "prop-types"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faBars } from "@fortawesome/free-solid-svg-icons"
 
 class Header extends React.Component {
   render() {
+    console.log(this.props)
     const title = (
       <h1>
         <Link to={`/`}> {this.props.title} </Link>
@@ -30,12 +33,19 @@ class Header extends React.Component {
     )
     return (
       <header id="header">
+        <span className="sidebarClick">
+          <Link to={`/categorypage`}>
+            <FontAwesomeIcon icon={faBars} />
+          </Link>
+        </span>
+
         {title}
         {nav}
       </header>
     )
   }
 }
+
 Header.propTypes = {
   title: propTypes.string.isRequired,
 }
