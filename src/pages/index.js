@@ -15,10 +15,10 @@ class BlogIndex extends React.Component {
   }
   */
   findCategory(basestr, fstr) {
-    if (basestr == undefined || basestr == null) {
+    if (basestr === undefined || basestr === null) {
       return false
     } else {
-      if (basestr.indexOf("/" + fstr) == -1) {
+      if (basestr.indexOf("/" + fstr) === -1) {
         return false
       } else {
         return true
@@ -28,13 +28,19 @@ class BlogIndex extends React.Component {
 
   render() {
     const { data, location } = this.props
+    let selectedCategory = undefined
+    if (location.state) {
+      selectedCategory =
+        location.state.selectedCategory === "undefined"
+          ? undefined
+          : location.state.selectedCategory
+    }
 
-    const selectedCategory = location.state.selectedCategory
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
     const viewPosts = posts.filter(({ node }) => {
       // 찾는 category가 없으면 전체 리스트 출력
-      if (selectedCategory == undefined) {
+      if (selectedCategory === undefined) {
         return node.excerpt !== ""
       } else {
         // 선택된 category만 출력
