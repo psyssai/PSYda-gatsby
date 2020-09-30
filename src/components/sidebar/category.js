@@ -49,7 +49,9 @@ const CategoryUl = ({ data, convertClickState }) => {
           id={level1}
           onClick={() => setStatus(status === 0 ? 1 : 0)}
         ></button>
-        {level1}({totalNum})
+        <span onClick={() => setStatus(status === 0 ? 1 : 0)}>
+          {level1}({totalNum})
+        </span>
       </div>
       <ul>
         {level2.map(({ name, num }) =>

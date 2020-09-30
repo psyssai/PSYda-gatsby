@@ -7,8 +7,6 @@
 
   #sidebar #categories {
     background-color: white;
-    padding: 0px 32px;
-    margin: 0 0 20px 0;
   }
 
   #sidebar #categories .categoryLevel1 {
@@ -18,12 +16,14 @@
   #sidebar .visibleCate {
     max-height: 800px;
     overflow: hidden;
-    transition: max-height 0.5s ease-in;
+    padding: 0px 32px 20px 32px;
+    transition: all 0.5s ease-in;
   }
   #sidebar .unVisibleCate {
     max-height: 0px;
+    padding: 0px 32px;
     overflow: hidden;
-    transition: max-height 0.5s ease-out;
+    transition: all 0.5s ease-out;
   }
 
   @keyframes showMenu {
@@ -84,6 +84,14 @@
 #sidebar #introduce p {
   font-size: 0.9em;
   opacity: 0.7;
+}
+
+#sidebar #categories span {
+  font-size: 20px;
+}
+
+#sidebar #categories li a {
+  font-size: 20px;
 }
 
 #sidebar #categories h1 {
