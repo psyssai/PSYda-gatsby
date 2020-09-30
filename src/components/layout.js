@@ -4,7 +4,18 @@ import Header from "./header/header"
 import { Helmet } from "react-helmet"
 import "./layout.css"
 class Layout extends React.Component {
+  state = {
+    isVisible: true,
+  }
+
+  convertClickState = () => {
+    this.setState({
+      isVisible: !this.state.isVisible,
+    })
+  }
+
   render() {
+    const { isVisible } = this.state
     const { title, children } = this.props
     return (
       <div id="wrapper">
@@ -14,9 +25,12 @@ class Layout extends React.Component {
             rel="stylesheet"
           />
         </Helmet>
-        <Header title={title} />
+        <Header title={title} convertClickState={this.convertClickState} />
         <div id="container">
-          <Sidebar />
+          <Sidebar
+            isVisible={isVisible}
+            convertClickState={this.convertClickState}
+          />
           <main id="main">{children}</main>
         </div>
       </div>

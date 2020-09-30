@@ -7,10 +7,10 @@ import { faBars } from "@fortawesome/free-solid-svg-icons"
 
 class Header extends React.Component {
   render() {
-    console.log(this.props)
-    const title = (
+    const { title, convertClickState } = this.props
+    const titleH1 = (
       <h1>
-        <Link to={`/`}> {this.props.title} </Link>
+        <Link to="/"> {title} </Link>
       </h1>
     )
     const nav = (
@@ -18,15 +18,15 @@ class Header extends React.Component {
         <ul>
           <li className="home">
             {" "}
-            <Link to={`/`}> Home </Link>
+            <Link to="/"> Home </Link>
           </li>
           <li className="categories">
             {" "}
-            <Link to={`/categorypage`}> Categories </Link>{" "}
+            <Link to="/categorypage"> Categories </Link>{" "}
           </li>
           <li className="memo">
             {" "}
-            <Link to={`/memo`}> Memo </Link>{" "}
+            <Link to="/memo"> Memo </Link>{" "}
           </li>
         </ul>
       </nav>
@@ -34,12 +34,9 @@ class Header extends React.Component {
     return (
       <header id="header">
         <span className="sidebarClick">
-          <Link to={`/categorypage`}>
-            <FontAwesomeIcon icon={faBars} />
-          </Link>
+          <FontAwesomeIcon icon={faBars} onClick={convertClickState} />
         </span>
-
-        {title}
+        {titleH1}
         {nav}
       </header>
     )

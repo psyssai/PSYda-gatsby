@@ -35,7 +35,7 @@ const getUlClassName = status => {
   return status === 1 ? "isUlVisible" : "isUlUnVisible"
 }
 
-const CategoryUl = ({ data }) => {
+const CategoryUl = ({ data, convertClickState }) => {
   const level1 = data[0]
   const level2 = data[1]
   let totalNum = 0
@@ -59,6 +59,7 @@ const CategoryUl = ({ data }) => {
             <li
               key={name}
               className={`categoryLevel2 ${getUlClassName(status)}`}
+              onClick={convertClickState}
             >
               <Link
                 to={`/`}
@@ -76,7 +77,7 @@ const CategoryUl = ({ data }) => {
   )
 }
 
-const Category = () => {
+const Category = props => {
   const data = useStaticQuery(graphql`
     query Category {
       allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
@@ -103,12 +104,19 @@ const Category = () => {
   const newCategories = splitCategories(categories)
   const arrCateogories = Array.from(newCategories)
   return (
-    <section id="categories">
+    <section
+      id="categories"
+      className={props.isVisible ? "visibleCate" : "unVisibleCate"}
+    >
       <h1>Categories</h1>
       {arrCateogories.map(value => (
         // value[0] => category level 1
         // value[1] => object {name : "category2", num:개수}
-        <CategoryUl key={value[0]} data={value} />
+        <CategoryUl
+          key={value[0]}
+          data={value}
+          convertClickState={props.convertClickState}
+        />
       ))}
     </section>
   )

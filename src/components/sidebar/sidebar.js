@@ -8,7 +8,10 @@ class Sidebar extends React.Component {
     return (
       <section id="sidebar">
         <Profile />
-        <Category />
+        <Category
+          isVisible={this.props.isVisible}
+          convertClickState={this.props.convertClickState}
+        />
       </section>
     )
   }

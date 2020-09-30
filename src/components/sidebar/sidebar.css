@@ -1,9 +1,47 @@
 @media screen and (max-width: 767px) {
   #sidebar {
-    padding: 20px 0 0 0;
+    padding: 0 0 0 0;
+    display: flex;
+    flex-direction: column-reverse;
   }
+
   #sidebar #categories {
-    display: none;
+    background-color: white;
+    padding: 0px 32px;
+    margin: 0 0 20px 0;
+  }
+
+  #sidebar #categories .categoryLevel1 {
+    background-color: white;
+  }
+
+  #sidebar .visibleCate {
+    max-height: 800px;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in;
+  }
+  #sidebar .unVisibleCate {
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+  }
+
+  @keyframes showMenu {
+    from {
+      height: 0;
+    }
+    to {
+      height: 300;
+    }
+  }
+
+  @keyframes closeMenu {
+    from {
+      height: 300;
+    }
+    to {
+      height: 0;
+    }
   }
 }
 
@@ -18,6 +56,8 @@
 /*@media screen and (min-width: 960px)*/
 @media screen and (min-width: 768px) {
   #sidebar {
+    display: flex;
+    flex-direction: column;
     min-width: 300px;
     margin-right: 3%;
     width: 20%;
@@ -30,6 +70,7 @@
 #sidebar #introduce {
   align-items: center;
   text-align: center;
+  padding: 20px 20px 0px 20px;
 }
 
 #sidebar #introduce p {
@@ -76,8 +117,17 @@
   margin: 0;
   padding: 0 0 0 0;
 }
+
+#sidebar #categories ul .isUlVisible {
+  max-height: 700px;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in;
+}
+
 #sidebar #categories ul .isUlUnVisible {
-  display: none;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
 }
 
 #sidebar #categories button.categoryLevel1 {
