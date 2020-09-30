@@ -50,7 +50,7 @@ const CategoryUl = ({ data, convertClickState }) => {
           onClick={() => setStatus(status === 0 ? 1 : 0)}
         ></button>
         <span onClick={() => setStatus(status === 0 ? 1 : 0)}>
-          {level1}({totalNum})
+          {level1} ({totalNum})
         </span>
       </div>
       <ul>
@@ -69,7 +69,7 @@ const CategoryUl = ({ data, convertClickState }) => {
                   selectedCategory: name,
                 }}
               >
-                {name}({num})
+                {name} ({num})
               </Link>
             </li>
           )
