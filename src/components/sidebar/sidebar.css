@@ -16,7 +16,7 @@
   #sidebar .visibleCate {
     max-height: 800px;
     overflow: hidden;
-    padding: 0px 32px 20px 32px;
+    padding: 0px 32px 50px 32px;
     transition: all 0.5s ease-in;
   }
   #sidebar .unVisibleCate {
