@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet"
 import "./layout.css"
 class Layout extends React.Component {
   state = {
-    isVisible: true,
+    isVisible: false,
   }
 
   convertClickState = () => {

@@ -40,7 +40,7 @@ const CategoryUl = ({ data, convertClickState }) => {
   const level2 = data[1]
   let totalNum = 0
   level2.map(({ name, num }) => (totalNum += num))
-  const [status, setStatus] = useState(1)
+  const [status, setStatus] = useState(0)
   return (
     <Fragment>
       <div>
