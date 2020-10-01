@@ -18,7 +18,8 @@ class BlogIndex extends React.Component {
     if (basestr === undefined || basestr === null) {
       return false
     } else {
-      if (basestr.indexOf("/" + fstr) === -1) {
+      const categoryArray = basestr.split("/")
+      if (categoryArray[1] !== fstr) {
         return false
       } else {
         return true
