@@ -70,8 +70,8 @@ tags: ["C++", "STL"]
    - stack, queue, priority_queue
 3. 반복자 어댑터
 
-   - reverse_iterator, insert_iterator
-   - back_insert_iterator, front_insert_iterator
+   - reverse \_iterator, insert_iterator
+   - back \_insert \_iterator, front \_insert_iterator
 
 4. 함수 어댑터
    - 바인더, 부정자, 함수 포인터 어댑터
