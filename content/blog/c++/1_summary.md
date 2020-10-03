@@ -305,7 +305,7 @@ Person* ptr = new Student();
 delete ptr; // => Student 소멸자도 호출됨
 ```
 
-# 14. 가상의 원리와 다중 상속
+# 14. 가상의 원리와 다중 상속([effective 7 참고](../effective_7))
 
 ![Virtual 상속](./img/virtualfunction.jpg)
 
