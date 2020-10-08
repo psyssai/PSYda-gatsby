@@ -41,7 +41,7 @@ void f(){
 
 1. 자원을 획득한 후에 자원 관리 객체에게 넘기자!
    - createInvestment를 통해 만든 자원을 auto_ptr에게 넘겨 초기화하는데 사용
-   - [RAII(Resource Acquisition Is Initialization)](https://en.cppreference.com/w/cpp/language/raii)라고 불림
+   - [RAII](https://en.cppreference.com/w/cpp/language/raii)라고 불림
    - 자원 획득과 자원 관리객체의 초기화가 한문장에서 이루어지는 것이 일상적임
 2. 자원 관리 객체는 자신의 소멸자를 사용해 자원이 확실히 해제되도록 하자!
    - 소멸자는 객체가 소멸될 때 자동으로 호출됨
@@ -82,3 +82,9 @@ pInv1 = pInv2; // 위와 동일ㅈ
 # 참고
 
 1. Effective C++
+
+# 별첨
+
+1. RAII(Resource Acquisition Is Initialization)
+   - 생성자에서 리소스를 획득하고 해당 소멸자에서 해제하는 것!
+   - 주로 포인터, 뮤텍스 등의 자원의 소멸이 누락되어 발생되는 문제를 방지하기 위해 별도의 자원 관리 객체를 두고, 객체 생성시 자원 획득 및 소멸시 자원 해제하는 것을 얘기함
