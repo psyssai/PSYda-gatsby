@@ -88,3 +88,5 @@ pInv1 = pInv2; // 위와 동일ㅈ
 1. RAII(Resource Acquisition Is Initialization)
    - 생성자에서 리소스를 획득하고 해당 소멸자에서 해제하는 것!
    - 주로 포인터, 뮤텍스 등의 자원의 소멸이 누락되어 발생되는 문제를 방지하기 위해 별도의 자원 관리 객체를 두고, 객체 생성시 자원 획득 및 소멸시 자원 해제하는 것을 얘기함
+2. RAII 클래스 예시
+   - string, vector, thread, unique_ptr, shared_ptr, lock_guard, unique_lock, shared_lock
