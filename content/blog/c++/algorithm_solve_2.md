@@ -1,5 +1,5 @@
 ---
-title: "[algorithm] 2. 소수의 개수"
+title: "[algorithm 풀이] 2. 소수의 개수"
 category: "C++/algorithm"
 date: "2020-10-18"
 tags: ["C++", "algorithm"]

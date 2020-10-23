@@ -1,5 +1,5 @@
 ---
-title: "[algorithm] 1. 모두의 약수 구하기"
+title: "[algorithm 풀이] 1. 모두의 약수 구하기"
 category: "C++/algorithm"
 date: "2020-10-17"
 tags: ["C++", "algorithm"]
