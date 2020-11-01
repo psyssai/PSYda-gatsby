@@ -49,6 +49,9 @@ DVD에는 총 N개의 곡이 들어가는데, DVD에 녹화할 때에는 라이�
    - 가능하다면, mid보다 큰값은 무조건 가능하므로, rt = mid -1 하면서 solution 변수에 mid값을 저장
    - 안된다면, mid보다는 커야 하므로, lt = mid + 1
    - 4를 반복하다가 lt와 rt가 엇갈리면 중단하고 solution 을 출력
+5. 주의 할점
+   - 가능 여부 판단 시에 mid는 반드시 값의 max값 보다 커야함
+   - DVD 용량이 음악 1곡의 크기보다 커야만 저장이 가능하기 때문
 
 ```cpp
 #include<iostream>
@@ -58,7 +61,7 @@ int main() {
 #include<iostream>
 #include<vector>
 
-bool isAvailable(std::vector<int> data, int mid, int num) {
+bool isAvailable(std::vector<int> data, int mid, int num, int max) {
 	int cnt = 1;
 	int sum = 0;
 	for (int i = 0; i < data.size(); i++) {
@@ -68,25 +71,28 @@ bool isAvailable(std::vector<int> data, int mid, int num) {
 			sum = data[i];
 		}
 	}
-	if (cnt <= num) {
+	if (mid >= max && cnt <= num) {
 		return true;
 	}
 	return false;
 }
 
 int main() {
-	int n, m, sum = 0;
+	int n, m, sum = 0, max = 0;;
 
 	scanf_s("%d %d", &n, &m);
 	std::vector<int> data(n);
 	for (auto& dd : data) {
 		scanf_s("%d", &dd);
 		sum += dd;
+		if (max < dd) {
+			max = dd;
+		}
 	}
 	int lt = sum / m, rt = sum, mid, solution = sum;
 	while (lt <= rt) {
 		mid = (lt + rt) / 2;
-		if (isAvailable(data, mid, m)) {
+		if (isAvailable(data, mid, m, max)) {
 			solution = mid;
 			rt = mid - 1;
 		}
@@ -97,7 +103,6 @@ int main() {
 
 	std::cout << solution;
 	return 0;
-}
 }
 ```
 
