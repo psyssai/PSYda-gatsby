@@ -1,6 +1,6 @@
 ---
 title: "[algorithm 풀이] 3. 3의 개수 구하기"
-category: "C++/algorithm"
+category: "algorithm/문제풀이"
 date: "2020-10-19"
 tags: ["C++", "algorithm"]
 ---
@@ -38,8 +38,6 @@ tags: ["C++", "algorithm"]
 8. 모든 자리에서 3이 나오는 횟수를 합함
 
 ```cpp
-#include<iostream>
-#include<vector>
 #include<iostream>
 #include<vector>
 #include<deque>

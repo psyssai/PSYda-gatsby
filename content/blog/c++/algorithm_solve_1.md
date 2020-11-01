@@ -1,6 +1,6 @@
 ---
 title: "[algorithm 풀이] 1. 모두의 약수 구하기"
-category: "C++/algorithm"
+category: "algorithm/문제풀이"
 date: "2020-10-17"
 tags: ["C++", "algorithm"]
 ---

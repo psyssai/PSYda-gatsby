@@ -1,6 +1,6 @@
 ---
 title: "[algorithm 풀이] 2. 소수의 개수"
-category: "C++/algorithm"
+category: "algorithm/문제풀이"
 date: "2020-10-18"
 tags: ["C++", "algorithm"]
 ---
