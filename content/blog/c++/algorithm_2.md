@@ -1,5 +1,5 @@
 ---
-title: "[algorithm 이론] 1. 이분 검색"
+title: "[algorithm 이론] 2. 이분 검색"
 category: "algorithm/이론"
 date: "2020-10-20"
 tags: ["C++", "algorithm"]
