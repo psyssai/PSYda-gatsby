@@ -1,3 +1,10 @@
+---
+title: "[SQL]1. 데이터 조회와 필터링"
+category: "빅데이터분석/sql"
+date: "2021-03-23"
+tags: ["sql", "select", "fetch", "limit"]
+---
+
 # 1\. 데이터 조회
 
 ​
