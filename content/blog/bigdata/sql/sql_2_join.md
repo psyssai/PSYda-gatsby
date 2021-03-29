@@ -1,7 +1,7 @@
 ---
 title: "[SQL]2. 데이터 조인"
 category: "빅데이터분석/sql"
-date: "2021-03-23"
+date: "2021-03-29"
 tags: ["sql", "join", "left outer join", "cross join"]
 ---
 
