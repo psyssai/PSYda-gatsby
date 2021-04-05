@@ -1,7 +1,7 @@
 ---
 title: "파이썬으로 postgresql(postGIS) 사용하기"
 category: "GIS/Python기반공간분석"
-date: "2021-03-05"
+date: "2021-03-20"
 tags: ["Python", "postgreSql", "postGIS"]
 ---
 
