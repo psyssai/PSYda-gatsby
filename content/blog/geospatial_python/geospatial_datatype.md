@@ -23,6 +23,9 @@ tags: ["공간 데이터 타입", "Geopandas", "ORG", "GDAL"]
 | Esri grid          | - 래스터 파일에 속성 데이터를 추가한 파일 포맷                                                  |
 | GeoTIFF            | - GIS 및 원격 탐사 App을 위한 표준 이미지 파일                                                  |
 
+- 참고
+  - 예제는 [국가표준노드링크](https://its.go.kr/nodelink/nodelinkRef)로 진행함.
+
 # 2\. GeoPandas로 벡터 데이터 읽고 쓰기
 
 - **벡터 데이터 읽기**
@@ -30,9 +33,161 @@ tags: ["공간 데이터 타입", "Geopandas", "ORG", "GDAL"]
 
 ```python
 import geopandas as gpd
-df = gpd.read_file(r'Natural_Earth_quick_start\10m_cultural\ne_10m_admin_0_boundary_lines_land.shp')
+df = gpd.read_file(r'data/MOCT_LINK.shp',encoding='CP949')
 df.head()
 ```
+
+<div style="overflow-x:scroll; ">
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+         white-space: nowrap !important;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+         white-space: nowrap !important;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+         white-space: nowrap !important;
+    }
+
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>LINK_ID</th>
+      <th>F_NODE</th>
+      <th>T_NODE</th>
+      <th>LANES</th>
+      <th>ROAD_RANK</th>
+      <th>ROAD_TYPE</th>
+      <th>ROAD_NO</th>
+      <th>ROAD_NAME</th>
+      <th>ROAD_USE</th>
+      <th>MULTI_LINK</th>
+      <th>CONNECT</th>
+      <th>MAX_SPD</th>
+      <th>REST_VEH</th>
+      <th>REST_W</th>
+      <th>REST_H</th>
+      <th>LENGTH</th>
+      <th>REMARK</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2630193301</td>
+      <td>2630076801</td>
+      <td>2630076901</td>
+      <td>1</td>
+      <td>106</td>
+      <td>000</td>
+      <td>391</td>
+      <td>화악산로</td>
+      <td>0</td>
+      <td>0</td>
+      <td>000</td>
+      <td>60</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>1410.192910</td>
+      <td>None</td>
+      <td>LINESTRING (245889.208 602540.103, 245884.524 ...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2630193001</td>
+      <td>2630076801</td>
+      <td>2630076701</td>
+      <td>1</td>
+      <td>106</td>
+      <td>003</td>
+      <td>391</td>
+      <td>화악산로</td>
+      <td>0</td>
+      <td>0</td>
+      <td>000</td>
+      <td>60</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>12.137670</td>
+      <td>None</td>
+      <td>LINESTRING (245881.843 602537.719, 245885.114 ...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2630193101</td>
+      <td>2630076701</td>
+      <td>2630076801</td>
+      <td>1</td>
+      <td>106</td>
+      <td>003</td>
+      <td>391</td>
+      <td>화악산로</td>
+      <td>0</td>
+      <td>0</td>
+      <td>000</td>
+      <td>60</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>12.326808</td>
+      <td>None</td>
+      <td>LINESTRING (245893.460 602528.496, 245889.209 ...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2630192801</td>
+      <td>2630076701</td>
+      <td>2630076601</td>
+      <td>1</td>
+      <td>106</td>
+      <td>000</td>
+      <td>391</td>
+      <td>화악산로</td>
+      <td>0</td>
+      <td>0</td>
+      <td>000</td>
+      <td>60</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>364.089006</td>
+      <td>None</td>
+      <td>LINESTRING (245885.688 602526.172, 245886.272 ...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2630192901</td>
+      <td>2630076601</td>
+      <td>2630076701</td>
+      <td>1</td>
+      <td>106</td>
+      <td>000</td>
+      <td>391</td>
+      <td>화악산로</td>
+      <td>0</td>
+      <td>0</td>
+      <td>000</td>
+      <td>60</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>373.389143</td>
+      <td>None</td>
+      <td>LINESTRING (246066.042 602242.391, 246069.650 ...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 - **Geometry 표시 하기**
 
@@ -65,23 +220,25 @@ df.crs
 ```
 
 ```text
-<Geographic 2D CRS: EPSG:4326>
-Name: WGS 84
-Axis Info [ellipsoidal]:
-- Lat[north]: Geodetic latitude (degree)
-- Lon[east]: Geodetic longitude (degree)
+<Projected CRS: PROJCS["ITRF2000_Central_Belt_60",GEOGCS["GCS_ITRF ...>
+Name: ITRF2000_Central_Belt_60
+Axis Info [cartesian]:
+- [east]: Easting (metre)
+- [north]: Northing (metre)
 Area of Use:
-- name: World
-- bounds: (-180.0, -90.0, 180.0, 90.0)
-Datum: World Geodetic System 1984
-- Ellipsoid: WGS 84
+- undefined
+Coordinate Operation:
+- name: unnamed
+- method: Transverse Mercator
+Datum: International Terrestrial Reference Frame 2000
+- Ellipsoid: GRS 1980
 - Prime Meridian: Greenwich
 ```
 
 - **좌표계 변경**
 
 ```python
-merc = df.to_crs({'init':'epsg:3395'})
+merc = df.to_crs({'init':'epsg:4326'})
 merc.plot(color='black')
 ```
 
@@ -90,14 +247,19 @@ merc.plot(color='black')
 - **GeoDataFrame을 json 포맷으로 변환**
 
 ```python
-df.to_json()
+# 데이터가 커서 sample로 1개 데이터만 json으로 변환
+df.head(1).to_json()
+```
+
+```text
+'{"type": "FeatureCollection", "features": [{"id": "0", "type": "Feature", "properties": {"CONNECT": "000", "F_NODE": "2630076801", "LANES": 1, "LENGTH": 1410.19291001225, "LINK_ID": "2630193301", "MAX_SPD": 60, "MULTI_LINK": "0", "REMARK": null, "REST_H": 0, "REST_VEH": "0", "REST_W": 0.0, "ROAD_NAME": "\\ud654\\uc545\\uc0b0\\ub85c", "ROAD_NO": "391", "ROAD_RANK": "106", "ROAD_TYPE": "000", "ROAD_USE": "0", "T_NODE": "2630076901"}, "geometry": {"type": "LineString", "coordinates": [[245889.20842293755, 602540.1031623926], [245884.52438196362, 602550.7076639828], [245880.5845997197, 602562.441661735], [245877.37697640058, 602577.5560817202], [245874.80402102915, 602590.923142394], [245870.08166344027, 602608.6555760134], [245866.14860266628, 602619.1390588756], [245861.72407481138, 602627.9941839982], [245850.47753049707, 602649.6933080491], [245843.77653209324, 602663.2882877537], [245840.21593625328, 602674.2739925202], [245836.2741359605, 602686.3831435101], [245833.96002093932, 602698.125878997], [245831.74675705165, 602714.3711385361], [245830.48617608764, 602739.5004281478], [245829.72781690946, 602764.257252305], [245829.78834916753, 602799.523103117], [245829.18865190083, 602818.0280274062], [245827.4648357864, 602836.2767985966], [245825.86203727854, 602855.2765506067], [245823.64944289793, 602871.396758187], [245821.52694263405, 602894.0203128068], [245820.4236764545, 602913.1478050507], [245821.58007512547, 602930.6617291515], [245823.60645547815, 602949.1807706261], [245825.40895076204, 602962.8214614922], [245826.09405003514, 602974.9554847644], [245825.65368618732, 602987.0834576795], [245823.97894215182, 602996.2034733664], [245820.42842643222, 603005.3134050232], [245811.20958754103, 603022.0212222983], [245803.40463366537, 603031.6085023026], [245795.35831640614, 603039.5687689325], [245779.41022924686, 603051.8634824678], [245761.20651050736, 603065.0214546616], [245744.9962197665, 603079.5657484786], [245711.8058337661, 603112.2767922183], [245676.3322525288, 603150.9782006346], [245664.11688441734, 603166.7945190094], [245654.27749311822, 603182.6236104805], [245646.6896994245, 603198.3397514643], [245641.49132830047, 603211.5676374831], [245635.8969615895, 603228.67010031], [245632.192484073, 603243.1565677221], [245627.70139361764, 603264.3917775303], [245625.5082893798, 603276.885489703], [245622.31073984868, 603290.1241318531], [245618.2163164351, 603307.3597129482], [245615.66553742788, 603316.6000712622], [245612.62396502416, 603324.0870205313], [245606.79428443874, 603338.4370064927], [245600.21765677864, 603352.1577013484], [245595.16584919338, 603361.384613071], [245585.18325133767, 603380.5894169775], [245577.72319553196, 603395.8060218558], [245572.39439199885, 603410.0336447023], [245567.3082955352, 603425.6381774854], [245563.35505705074, 603439.873195574], [245557.6094144114, 603461.851987991], [245552.1448012958, 603478.0797602631], [245546.8139796491, 603492.6825364484], [245543.12428970283, 603504.4178705714], [245537.91112339962, 603520.3968842088], [245527.91978245924, 603541.2273534045], [245501.14465575287, 603590.2300162113], [245479.78640583853, 603631.8835551282], [245454.11186099224, 603685.5191653903], [245430.8179966427, 603738.292187912], [245408.38805921804, 603793.195787896], [245399.2431610517, 603819.4081672801]]}}]}'
 ```
 
 - **GeoDataFrame을 json 파일로 저장**
   - driver : 출력 파일 포맷
 
 ```python
-df.to_file(driver='GeoJSON', filename='world.geojson')
+df.to_file(driver='GeoJSON', filename='link.geojson')
 ```
 
 - **파일 출력 시 가능한 포맷**
@@ -131,62 +293,67 @@ Supported Formats:
 ```
 
 - **파일의 요약 정보 보기**
-  - 10m_cultural 폴더의 ne_10m_admin_0_boundary_lines_land 파일의 요약 정보 보기
+  - data 폴더의 link 파일 요약 정보 보기
   - \-so : 요약 정보만 보겠다는 옵션
   - \-so가 없으면 shp의 모든 정보를 표시함
 
 ```python
-!ogrinfo -so "10m_cultural" ne_10m_admin_0_boundary_lines_land
+!ogrinfo -so "data" MOCT_LINK
 ```
 
 ```text
-INFO: Open of `Natural_Earth_quick_start/10m_cultural'
+INFO: Open of `data'
       using driver `ESRI Shapefile' successful.
 
-Layer name: ne_10m_admin_0_boundary_lines_land
+Layer name: MOCT_LINK
 Metadata:
-  DBF_DATE_LAST_UPDATE=2018-05-13
+  DBF_DATE_LAST_UPDATE=2021-03-30
 Geometry: Line String
-Feature Count: 462
-Extent: (-141.005549, -55.120924) - (140.977627, 70.075310)
+Feature Count: 528232
+Extent: (101766.537600, 67516.493200) - (546275.776100, 665746.517600)
 Layer SRS WKT:
-GEOGCS["WGS 84",
-    DATUM["WGS_1984",
-        SPHEROID["WGS 84",6378137,298.257223563,
-            AUTHORITY["EPSG","7030"]],
-        AUTHORITY["EPSG","6326"]],
-    PRIMEM["Greenwich",0,
-        AUTHORITY["EPSG","8901"]],
-    UNIT["degree",0.0174532925199433,
-        AUTHORITY["EPSG","9122"]],
-    AXIS["Latitude",NORTH],
-    AXIS["Longitude",EAST],
-    AUTHORITY["EPSG","4326"]]
-Data axis to CRS axis mapping: 2,1
-featurecla: String (32.0)
-name: String (100.0)
-comment: String (100.0)
-adm0_usa: Integer (4.0)
-adm0_left: String (100.0)
-adm0_right: String (100.0)
-adm0_a3_l: String (3.0)
-adm0_a3_r: String (3.0)
-sov_a3_l: String (3.0)
-sov_a3_r: String (3.0)
-type: String (50.0)
-labelrank: Integer (4.0)
-scalerank: Integer64 (10.0)
-min_zoom: Real (4.1)
-min_label: Real (4.1)
-note: String (254.0)
-adm0_abr_l: String (32.0)
-adm0_abr_r: String (32.0)
+PROJCS["ITRF2000_Central_Belt_60",
+    GEOGCS["GCS_ITRF_2000",
+        DATUM["International_Terrestrial_Reference_Frame_2000",
+            SPHEROID["GRS 1980",6378137,298.257222101,
+                AUTHORITY["EPSG","7019"]],
+            AUTHORITY["EPSG","6656"]],
+        PRIMEM["Greenwich",0],
+        UNIT["Degree",0.0174532925199433]],
+    PROJECTION["Transverse_Mercator"],
+    PARAMETER["latitude_of_origin",38],
+    PARAMETER["central_meridian",127],
+    PARAMETER["scale_factor",1],
+    PARAMETER["false_easting",200000],
+    PARAMETER["false_northing",600000],
+    UNIT["metre",1,
+        AUTHORITY["EPSG","9001"]],
+    AXIS["Easting",EAST],
+    AXIS["Northing",NORTH]]
+Data axis to CRS axis mapping: 1,2
+LINK_ID: String (10.0)
+F_NODE: String (10.0)
+T_NODE: String (10.0)
+LANES: Integer (4.0)
+ROAD_RANK: String (3.0)
+ROAD_TYPE: String (3.0)
+ROAD_NO: String (5.0)
+ROAD_NAME: String (30.0)
+ROAD_USE: String (1.0)
+MULTI_LINK: String (1.0)
+CONNECT: String (3.0)
+MAX_SPD: Integer (4.0)
+REST_VEH: String (3.0)
+REST_W: Integer (4.0)
+REST_H: Integer (4.0)
+LENGTH: Real (18.12)
+REMARK: String (30.0)
 ```
 
 - **shp 파일을 GeoJson파일로 변환**
 
 ```python
-!ogr2ogr -f "GeoJson" "output.json" "Natural_Earth_quick_start/10m_cultural/ne_10m_admin_0_boundary_lines_land.shp"
+!ogr2ogr -f "GeoJson" "output.json" "data/MOCT_LINK.shp"
 ```
 
 - **KML 파일 읽기**
@@ -213,7 +380,7 @@ INFO: Open of `KML_Sample.kml'
 
 ```python
 from osgeo import ogr
-source = ogr.Open(r'Natural_Earth_quick_start\10m_cultural\ne_10m_admin_0_boundary_lines_land.shp')
+source = ogr.Open(r'data/MOCT_LINK.shp')
 layer = source.GetLayer()
 schema = []
 ldefn = layer.GetLayerDefn()
@@ -224,7 +391,7 @@ print(schema)
 ```
 
 ```text
-['featurecla', 'name', 'comment', 'adm0_usa', 'adm0_left', 'adm0_right', 'adm0_a3_l', 'adm0_a3_r', 'sov_a3_l', 'sov_a3_r', 'type', 'labelrank', 'scalerank', 'min_zoom', 'min_label', 'note', 'adm0_abr_l', 'adm0_abr_r']
+['LINK_ID', 'F_NODE', 'T_NODE', 'LANES', 'ROAD_RANK', 'ROAD_TYPE', 'ROAD_NO', 'ROAD_NAME', 'ROAD_USE', 'MULTI_LINK', 'CONNECT', 'MAX_SPD', 'REST_VEH', 'REST_W', 'REST_H', 'LENGTH', 'REMARK']
 ```
 
 - **Feature 개수 구하기**
@@ -232,7 +399,7 @@ print(schema)
 ```python
 from osgeo import ogr
 import os
-shapefile = r'Natural_Earth_quick_start\10m_cultural\ne_10m_admin_0_boundary_lines_land.shp'
+shapefile = r'data/MOCT_LINK.shp'
 driver = ogr.GetDriverByName("ESRI Shapefile")
 dataSource = driver.Open(shapefile, 0)
 layer = dataSource.GetLayer()
@@ -241,7 +408,7 @@ print("count = ", featureCount)
 ```
 
 ```text
-count =  462
+count =  528232
 ```
 
 - **CRS 정보 조회하기**
@@ -255,18 +422,24 @@ print(spatialRef)
 ```
 
 ```text
-GEOGCS["WGS 84",
-    DATUM["WGS_1984",
-        SPHEROID["WGS 84",6378137,298.257223563,
-            AUTHORITY["EPSG","7030"]],
-        AUTHORITY["EPSG","6326"]],
-    PRIMEM["Greenwich",0,
-        AUTHORITY["EPSG","8901"]],
-    UNIT["degree",0.0174532925199433,
-        AUTHORITY["EPSG","9122"]],
-    AXIS["Latitude",NORTH],
-    AXIS["Longitude",EAST],
-    AUTHORITY["EPSG","4326"]]
+PROJCS["ITRF2000_Central_Belt_60",
+    GEOGCS["GCS_ITRF_2000",
+        DATUM["International_Terrestrial_Reference_Frame_2000",
+            SPHEROID["GRS 1980",6378137,298.257222101,
+                AUTHORITY["EPSG","7019"]],
+            AUTHORITY["EPSG","6656"]],
+        PRIMEM["Greenwich",0],
+        UNIT["Degree",0.0174532925199433]],
+    PROJECTION["Transverse_Mercator"],
+    PARAMETER["latitude_of_origin",38],
+    PARAMETER["central_meridian",127],
+    PARAMETER["scale_factor",1],
+    PARAMETER["false_easting",200000],
+    PARAMETER["false_northing",600000],
+    UNIT["metre",1,
+        AUTHORITY["EPSG","9001"]],
+    AXIS["Easting",EAST],
+    AXIS["Northing",NORTH]]
 ```
 
 ```python
@@ -278,18 +451,24 @@ print(spatialRef2)
 ```
 
 ```text
-GEOGCS["WGS 84",
-    DATUM["WGS_1984",
-        SPHEROID["WGS 84",6378137,298.257223563,
-            AUTHORITY["EPSG","7030"]],
-        AUTHORITY["EPSG","6326"]],
-    PRIMEM["Greenwich",0,
-        AUTHORITY["EPSG","8901"]],
-    UNIT["degree",0.0174532925199433,
-        AUTHORITY["EPSG","9122"]],
-    AXIS["Latitude",NORTH],
-    AXIS["Longitude",EAST],
-    AUTHORITY["EPSG","4326"]]
+PROJCS["ITRF2000_Central_Belt_60",
+    GEOGCS["GCS_ITRF_2000",
+        DATUM["International_Terrestrial_Reference_Frame_2000",
+            SPHEROID["GRS 1980",6378137,298.257222101,
+                AUTHORITY["EPSG","7019"]],
+            AUTHORITY["EPSG","6656"]],
+        PRIMEM["Greenwich",0],
+        UNIT["Degree",0.0174532925199433]],
+    PROJECTION["Transverse_Mercator"],
+    PARAMETER["latitude_of_origin",38],
+    PARAMETER["central_meridian",127],
+    PARAMETER["scale_factor",1],
+    PARAMETER["false_easting",200000],
+    PARAMETER["false_northing",600000],
+    UNIT["metre",1,
+        AUTHORITY["EPSG","9001"]],
+    AXIS["Easting",EAST],
+    AXIS["Northing",NORTH]]
 ```
 
 # 4. Rasterio로 래스터 데이터 읽고 쓰기
