@@ -335,19 +335,247 @@ for poly in c:
 
 # 7. Feature 추가, 편집, 삭제, 조회
 
+- 앞선 2. 레이어 로딩하기에서 로딩한 Node 데이터로 예제 진행
+- **레어어에 가능한 작업 리스트 확인**
+
+```python
+node.dataProvider().capabilitiesString()
+```
+
+```text
+'객체 추가, 객체 삭제, 속성 값 변경, 속성 추가, 속성 삭제, 속성 이름 바꾸기, 공간 인덱스 생성, 속성 인덱스 생성, ID로 빠른 객체 접근, 도형 변경'
+```
+
 ## 7.1 Feature 추가
+
+- **새로운 Node 1개 추가**
+
+```python
+feat = QgsFeature(node.fields())
+feat.setAttribute('NODE_ID', 99999999999)
+feat.setAttribute('NODE_TYPE', 1)
+# 또는 위의 코드를 아래와 같이 한줄로 표현 가능
+# feat.setAttributes([999999999999, 1 , ...속성값들])
+feat.setGeometry(QgsGeometry.fromPointXY(QgsPointXY(221689.09,462751.59)))
+node.dataProvider().addFeatures([feat])
+```
+
+| 추가 전                           | 추가 후                          |
+| --------------------------------- | -------------------------------- |
+| ![](./img/feature_add_before.png) | ![](./img/feature_add_after.png) |
 
 ## 7.2 Feature 삭제
 
+- **차선이 1개인 링크 삭제**
+
+```python
+deleteList = []
+for x in link.getFeatures():
+  if x["LANES"] == 1:
+    deleteList.append(x.id())
+link.dataProvider().deleteFeatures(deleteList)
+```
+
+| 삭제 전                              | 삭제 후                             |
+| ------------------------------------ | ----------------------------------- |
+| ![](./img/feature_delete_before.png) | ![](./img/feature_delete_after.png) |
+
 ## 7.3 Feature 편집
 
+- **'서울외곽순환고속도로' 링크를 '수도권제1순환고속도로'로 명칭 변경**
+
+```python
+for x in link.getFeatures():
+  if x['ROAD_NAME'] == '서울외곽순환고속도로':
+    link.dataProvider().changeAttributeValues({x.id():{7:'수도권제1순환고속도로'}})
+```
+
+| 변경 전                              | 변경 후                             |
+| ------------------------------------ | ----------------------------------- |
+| ![](./img/feature_update_before.png) | ![](./img/feature_update_after.png) |
+
 ## 7.4 Feature 선택(수식 이용)
+
+- **도로번호가 1이면서 도로명이 '경부고속도로인 링크 선택하기**
+
+```python
+link.selectByExpression("ROAD_NO=1 and ROAD_NAME='경부고속도로'")
+```
+
+| 변경 전                              | 변경 후                             |
+| ------------------------------------ | ----------------------------------- |
+| ![](./img/feature_select_before.png) | ![](./img/feature_select_after.png) |
 
 # 8. Toolbox
 
 ## 8.1 Toolbox 사용하기
 
+- **사용 가능한 Toolbox 기능 리스트 확인하기**
+  - **QgsApplication.processingRegistry().algorithms()** : 사용 가능한 알고리즘 전체 객체 리스트
+  - **alg.provider().name()** : 알고리즘 provider 이름
+  - **alg.name()** : 알고리즘 이름
+  - **alg.displayName()** : 알고리즘 표시 이름
+
+```python
+from qgis import processing
+for alg in QgsApplication.processingRegistry().algorithms():
+  print("{}:{} --> {}".format(alg.provider().name(), alg.name(), alg.displayName()))
+```
+
+```text
+GDAL:aspect --> 경사 방향
+GDAL:assignprojection --> 투영체 적용
+GDAL:buffervectors --> 벡터 버퍼
+GDAL:buildvirtualraster --> 가상 래스터 생성
+GDAL:buildvirtualvector --> 가상 벡터 생성
+GDAL:cliprasterbyextent --> 범위로 래스터 자르기
+...
+```
+
+- **알고리즘 이름으로 찾기**
+
+```python
+[x.id() for x in QgsApplication.processingRegistry().algorithms() if "buffer" in x.id()]
+```
+
+```text
+['gdal:buffervectors', 'gdal:onesidebuffer', 'grass7:r.buffer', 'grass7:r.buffer.lowmem', 'grass7:v.buffer', 'native:buffer', 'native:bufferbym', 'native:multiringconstantbuffer', 'native:singlesidedbuffer', 'native:taperedbuffer', 'native:wedgebuffers', 'qgis:variabledistancebuffer', 'saga:fixeddistancebuffer', 'saga:rasterbuffer', 'saga:rasterproximitybuffer', 'saga:thresholdrasterbuffer', 'saga:variabledistancebuffer']
+```
+
+- **알고리즘 사용방식 확인**
+
+```python
+processing.algorithmHelp("native:buffer")
+```
+
+```text
+버퍼 (native:buffer)
+
+이 알고리즘은 고정 또는 동적 거리를 사용해서 입력 레이어의 모든 객체에 대해 버퍼 영역을 계산합니다.
+
+둥근 오프셋을 생성하는 경우 선분 파라미터가 사분원을 비슷하게그리는 데 사용할 라인 선분의 개수를 제어합니다.
+
+선끝(end cap) 스타일 파라미터는 버퍼 내부에서 라인 끝부분을 어떻게 처리할지 제어합니다.
+
+결합 스타일 파라미터는 오프셋이 라인의 모서리에 적용될 경우 결합 부위를 둥글게(round) 할지, 마이터(miter)로 할지, 비스듬하게(bevel) 할지 지정합니다.
+
+마이터 제한 파라미터는 마이터 결합 스타일에만 적용할 수 있으며, 마이터 결합 부위를 생성하는 경우 사용할 오프셋 곡선으로부터의 최대 거리를 제어합니다.
+
+
+----------------
+Input parameters
+----------------
+
+INPUT: 입력 레이어
+
+	Parameter type:	QgsProcessingParameterFeatureSource
+
+	Accepted data types:
+		- str: 레이어 ID
+		- str: 레이어 이름
+		- str: 레이어 원본
+		- QgsProcessingFeatureSourceDefinition
+		- QgsProperty
+		- QgsVectorLayer
+
+DISTANCE: 거리
+
+	Parameter type:	QgsProcessingParameterDistance
+
+	Accepted data types:
+		- int
+		- float
+		- QgsProperty
+
+SEGMENTS: 선분
+
+	반올림한 오프셋을 생성하는 경우, 선분 파라미터가 사분원을 근사치로 계산하기 위해 사용할 라인 선분의 개수를 제어합니다.
+
+	Parameter type:	QgsProcessingParameterNumber
+
+	Accepted data types:
+		- int
+		- float
+		- QgsProperty
+
+END_CAP_STYLE: 선끝 스타일
+
+	Parameter type:	QgsProcessingParameterEnum
+
+	Available values:
+		- 0: 둥글게
+		- 1: 평평하게
+		- 2: 정사각형
+
+	Accepted data types:
+		- int
+		- str: int를 표현하는 문자열, 예. '1'
+		- QgsProperty
+
+JOIN_STYLE: 이음새 스타일
+
+	Parameter type:	QgsProcessingParameterEnum
+
+	Available values:
+		- 0: 둥글게
+		- 1: 마이터(miter)
+		- 2: 비스듬하게(bevel)
+
+	Accepted data types:
+		- int
+		- str: int를 표현하는 문자열, 예. '1'
+		- QgsProperty
+
+MITER_LIMIT: 마이터 제한
+
+	Parameter type:	QgsProcessingParameterNumber
+
+	Accepted data types:
+		- int
+		- float
+		- QgsProperty
+
+DISSOLVE: 결과물 디졸브
+
+	Parameter type:	QgsProcessingParameterBoolean
+
+	Accepted data types:
+		- bool
+		- int
+		- str
+		- QgsProperty
+
+OUTPUT: 산출물
+
+	Parameter type:	QgsProcessingParameterFeatureSink
+
+	Accepted data types:
+		- str: 대상 벡터 파일, 예. 'd:/test.shp'
+		- str: 임시 메모리 레이어에 결과를 저장하는 'memory :'
+		- str: 벡터 공급자 ID 접두사 및 대상 URI 사용, 예. PostGIS 테이블에 결과를 저장하는 'postgres:…'
+		- QgsProcessingOutputLayerDefinition
+		- QgsProperty
+
+----------------
+Outputs
+----------------
+
+OUTPUT:  <QgsProcessingOutputVectorLayer>
+	산출물
+```
+
+- **알고리즘 사용하기(buffer)**
+
+```python
+result = processing.run("native:buffer",{'INPUT':'mNode','DISTANCE':10,'SEGMENTS':5, 'END_CAP_STYLE':0,'JOIN_STYLE':0,'MITER_LIMIT':2, 'DISSOLVE':False,'OUTPUT':'memory:'})
+QgsProject.instance().addMapLayer(result['OUTPUT'])
+```
+
+![](./img/buffer.png)
+
 ## 8.2 Toolbox 만들기
+
+- [Toolbox 만들기](https://www.youtube.com/watch?v=kkrqnj-iUHM)
 
 # 참고
 
